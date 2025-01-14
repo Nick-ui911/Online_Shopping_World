@@ -8,7 +8,6 @@ import Contact from "./component/Contact";
 import Error from "./component/Error";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import RestaurantMenu from "./component/RestaurantMenu";
-import Login from "./component/loginForm";
 import Fitness from "./component/Fitness";
 import { Shimmer } from "./component/shimmer";
 import Instaitem from "./component/InstamartItem";
@@ -35,6 +34,7 @@ import Review from "./component/Review";
 import SoldBy from "./component/SoldBy";
 import Trending from "./component/Trending";
 import MyBooking from "./component/MyBooking";
+import AuthPage from "./component/AuthPage";
 
 
 // import Dineout from "./component/Dineout";
@@ -87,7 +87,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <Login />,
+        element: <AuthPage/>,
       },
       {
         path: "/restaurant/:id",

@@ -8,30 +8,18 @@ body {
 .header {
   z-index: 1000;
   background-color: #fff;
-  border: 1px solid #ccc;
-  border-bottom-color: #ddd;
-  border-radius: 8px;
   justify-content: space-between;
   align-items: center;
-  margin: 10px;
-  padding: 10px;
+  padding: 15px 20px;
   display: flex;
   position: sticky;
   top: 0;
-  box-shadow: 0 2px 4px #0000001a;
+  box-shadow: 0 4px 6px #0000001a;
 }
 
-.nav-link {
-  color: #333;
-  padding: 10px 15px;
-  text-decoration: none;
-  transition: background-color .3s, color .3s;
-}
-
-.nav-link:hover {
-  color: #fff;
-  background-color: #ceecf6;
-  border-radius: 5px;
+.logo {
+  cursor: pointer;
+  width: 150px;
 }
 
 .nav-item ul {
@@ -42,46 +30,39 @@ body {
 }
 
 .nav-item ul li {
-  margin-top: 20px;
-  padding: 10px 15px;
-  transition: background-color .3s;
+  margin: 0 15px;
+}
+
+.nav-link {
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color .3s;
+}
+
+.nav-link:hover {
+  color: #007bff;
+  border-bottom: 2px solid #007bff;
 }
 
 .cart-logo {
-  color: #333;
-  cursor: pointer;
-  font-size: 24px;
-  transition: transform .3s;
-  display: inline-block;
+  align-items: center;
+  display: flex;
   position: relative;
 }
 
 .cart-icon {
-  color: #555;
-  font-size: 30px;
-  transition: color .3s;
+  color: #333;
+  font-size: 20px;
 }
 
-.cart-logo:hover {
-  transform: scale(1.1);
-}
-
-.cart-logo:hover .cart-icon {
+.cart-icon:hover {
   color: #007bff;
 }
 
-.nav-item ul li:hover {
-  background-color: #e9ecef;
-}
-
-.lineremove {
-  color: #000;
-  text-decoration: none;
-}
-
-.logo {
-  width: 100px;
-  height: auto;
+.button-login {
+  margin-left: 20px;
 }
 
 .login-button {
@@ -90,19 +71,24 @@ body {
   background-color: #007bff;
   border: none;
   border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 16px;
-  transition: background-color .3s, transform .2s;
+  padding: 8px 15px;
+  font-size: 14px;
+  transition: background-color .3s;
 }
 
-.login-button:hover {
-  background-color: #0056b3;
-  transform: scale(1.05);
-}
+@media screen and (width <= 768px) {
+  .header, .nav-item ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-.login-button:active {
-  background-color: #004080;
-  transform: scale(.95);
+  .nav-item ul li {
+    margin: 10px 0;
+  }
+
+  .button-login {
+    margin-top: 15px;
+  }
 }
 
 .card {
@@ -532,52 +518,110 @@ h2 {
   display: flex;
 }
 
-.form-signin {
-  background-color: #fff;
-  border-radius: 8px;
+.auth-container {
+  text-align: center;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 10px;
   width: 100%;
   max-width: 400px;
-  margin: auto;
-  padding: 15px;
+  margin: 50px auto;
+  padding: 20px;
   box-shadow: 0 4px 8px #0000001a;
 }
 
-h1 {
-  text-align: center;
+.auth-container h2 {
   color: #333;
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
 }
 
-.form-floating {
-  margin-bottom: 15px;
+.auth-container {
+  background-color: #f5f5f5;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+  display: flex;
 }
 
-.form-control {
-  border: 1px solid #ced4da;
+.login-page, .register-page {
+  background: #fff;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  padding: 30px 40px;
+  box-shadow: 0 4px 10px #0000001a;
+}
+
+form {
+  flex-direction: column;
+  gap: 15px;
+  display: flex;
+}
+
+input {
+  border: 1px solid #ddd;
   border-radius: 5px;
-  height: auto;
-  padding: 10px;
-  transition: border-color .3s;
-}
-
-.form-control:focus {
-  border-color: #007bff;
   outline: none;
+  padding: 10px;
+  font-size: 16px;
 }
 
-.btn-primary {
+input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px #007bff80;
+}
+
+button {
+  cursor: pointer;
+}
+
+.btn1 {
+  color: #fff;
   background-color: #007bff;
   border: none;
   border-radius: 5px;
   padding: 10px;
+  font-size: 16px;
   transition: background-color .3s;
 }
 
-.btn-primary:hover {
+.btn1:hover {
   background-color: #0056b3;
 }
 
-.checkbox {
-  text-align: left;
+.register-btn {
+  color: #fff;
+  background: linear-gradient(45deg, #6a11cb, #2575fc);
+  border: none;
+  border-radius: 50px;
+  padding: 10px;
+  font-size: 16px;
+  transition: all .3s;
+}
+
+.register-btn:hover {
+  background: linear-gradient(45deg, #2575fc, #6a11cb);
+  transform: scale(1.05);
+}
+
+.toggle-btn {
+  color: #007bff;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+.toggle-btn:hover {
+  color: #0056b3;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
 }
 
 .text-muted {

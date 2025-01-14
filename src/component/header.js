@@ -56,7 +56,7 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link className="nav-link" to="/cart">
+              <Link className="nav-link " to="/cart">
                 <div class="cart-logo">
                   <span class="cart-icon">
                     <FaShoppingCart />
@@ -72,7 +72,7 @@ const Header = () => {
         it is reflected in the component */}
         {/* <input onChange={(e)=>{setUser({...user,name : e.target.value})}}></input>
       <input onChange={(e)=>{setUser({...user,email : e.target.value})}}></input> */}
-        <Link className="button lineremove" to="/login">
+        <Link className="button-login" to="/login">
           <button className="login-button">Login</button>
         </Link>
       </div>
