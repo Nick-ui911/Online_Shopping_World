@@ -26,7 +26,7 @@ const Instaitem = () => {
   if (error) {
     return <div>Error: {error}</div>;
   }
-  
+   
 
   const dispatch = useDispatch();
 
