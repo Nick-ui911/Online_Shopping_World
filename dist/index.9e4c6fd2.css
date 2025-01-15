@@ -2122,4 +2122,28 @@ button {
 .search-button:hover {
   background-color: #ff4500;
 }
+
+.view-details {
+  color: #fff;
+  text-align: center;
+  background-color: tomato;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color .3s, transform .2s;
+  display: inline-block;
+}
+
+.view-details:hover {
+  background-color: #ff4500;
+  transform: scale(1.05);
+}
+
+.view-details:active {
+  background-color: #003f7f;
+  transform: scale(1);
+}
 /*# sourceMappingURL=index.9e4c6fd2.css.map */

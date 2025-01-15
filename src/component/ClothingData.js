@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { filterData } from "../utils/helper";
 
 const ClothingData = ({ activeSection, data, loading, error, searchTerm }) => {
   // Filter data based on the search term
   const filteredData = searchTerm
-    ? filterData(searchTerm,data)
+    ? filterData(searchTerm, data)
     : data; // Show all data if searchTerm is empty
 
   return (
@@ -26,6 +27,13 @@ const ClothingData = ({ activeSection, data, loading, error, searchTerm }) => {
                   <div className="card-info">
                     <h4 className="card-title">{item.name}</h4>
                     <p className="card-price">{item.price}</p>
+                    {/* View Details Link */}
+                    <Link
+                      to={`/fashion/${item.id}?section=${activeSection}`}
+                      className="view-details"
+                    >
+                      View Details
+                    </Link>
                   </div>
                 </div>
               ))
