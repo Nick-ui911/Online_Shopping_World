@@ -619,11 +619,6 @@ button {
   color: #0056b3;
 }
 
-.error {
-  color: red;
-  font-size: 12px;
-}
-
 .text-muted {
   text-align: center;
   color: #6c757d;
@@ -1909,5 +1904,222 @@ button {
   height: 2px;
   margin: 10px auto;
   display: block;
+}
+
+.clothing-container {
+  text-align: center;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.title {
+  color: #333;
+  margin-bottom: 30px;
+  font-size: 36px;
+}
+
+.sections-container {
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 40px;
+  display: flex;
+}
+
+.section-card {
+  cursor: pointer;
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 150px;
+  transition: transform .3s, box-shadow .3s;
+  display: flex;
+  box-shadow: 0 4px 8px #0000001a;
+}
+
+.section-card h3 {
+  color: #fff;
+  text-shadow: 0 2px 4px #0009;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.section-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px #0003;
+}
+
+.section-card.men {
+  background-image: url("https://media.istockphoto.com/id/1293366109/photo/this-one-match-perfect-with-me.jpg?s=612x612&w=0&k=20&c=wJ6yYbRrDfdmoViuQkX39s2z_0lCiNQYgEtLU--0EbY=");
+}
+
+.section-card.women {
+  background-image: url("https://images.pexels.com/photos/1549283/pexels-photo-1549283.jpeg");
+}
+
+.section-card.kids {
+  background-image: url("https://images.pexels.com/photos/3662821/pexels-photo-3662821.jpeg");
+}
+
+.title {
+  color: #333;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  padding-bottom: 5px;
+  font-family: Montserrat, sans-serif;
+  font-size: 50px;
+  font-weight: 700;
+  display: inline-block;
+  position: relative;
+}
+
+.title:after {
+  content: "";
+  transform-origin: 100% 100%;
+  background: linear-gradient(90deg, tomato, gold);
+  border-radius: 5px;
+  width: 100%;
+  height: 4px;
+  transition: transform .3s ease-out;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+}
+
+.title:hover:after {
+  transform-origin: 0 100%;
+  transform: scaleX(1);
+}
+
+.title {
+  text-shadow: 3px 3px 5px #0000001a;
+}
+
+.clothing-data {
+  margin-top: 20px;
+}
+
+.loading {
+  color: #007bff;
+  font-size: 18px;
+}
+
+.error {
+  color: #ff4d4d;
+  font-size: 18px;
+}
+
+.section-title {
+  text-transform: uppercase;
+  color: #333;
+  letter-spacing: 2px;
+  text-align: center;
+  border-bottom: 3px solid #f2f2f2;
+  margin-bottom: 30px;
+  padding: 20px 0;
+  font-family: Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.section-title:after {
+  content: "";
+  background-color: tomato;
+  width: 50px;
+  height: 3px;
+  margin: 10px auto;
+  display: block;
+}
+
+.section-title:hover {
+  color: tomato;
+  transition: color .3s ease-in-out;
+}
+
+.cards-container {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  display: flex;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  width: 220px;
+  transition: transform .3s, box-shadow .3s;
+  overflow: hidden;
+  box-shadow: 0 4px 8px #0000001a;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px #0003;
+}
+
+.card-image {
+  object-fit: cover;
+  width: 100%;
+  height: 200px;
+}
+
+.card-info {
+  text-align: center;
+  padding: 15px;
+}
+
+.card-title {
+  color: #333;
+  margin-bottom: 5px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.card-price {
+  color: #007bff;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.search-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.search-bar {
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+  width: 70%;
+  max-width: 400px;
+  padding: 10px;
+  font-size: 16px;
+  transition: border-color .3s;
+}
+
+.search-bar:focus {
+  border-color: tomato;
+}
+
+.search-button {
+  color: #fff;
+  cursor: pointer;
+  background-color: tomato;
+  border: none;
+  border-radius: 5px;
+  margin-left: 10px;
+  padding: 10px 15px;
+  font-size: 16px;
+  transition: background-color .3s;
+}
+
+.search-button:hover {
+  background-color: #ff4500;
 }
 /*# sourceMappingURL=index.9e4c6fd2.css.map */

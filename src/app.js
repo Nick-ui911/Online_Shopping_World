@@ -1,7 +1,7 @@
 import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./component/header";
-import Restaurant  from "./component/Restaurant ";
+import Restaurant from "./component/Restaurant ";
 import Footer from "./component/footer";
 import Cart from "./component/Cart";
 import Contact from "./component/Contact";
@@ -35,6 +35,7 @@ import SoldBy from "./component/SoldBy";
 import Trending from "./component/Trending";
 import MyBooking from "./component/MyBooking";
 import AuthPage from "./component/AuthPage";
+import SpecificSectionData from "./component/SpecificSectionData";
 
 
 // import Dineout from "./component/Dineout";
@@ -47,15 +48,15 @@ const Applayout = () => {
     name: "Raj Babbar",
     email: "nbaghel392@gmail.com",
   });
- 
+
   return (
-   <Provider store = {store}>
-    <UserContext.Provider value={{ seller : seller,setSeller : setSeller }}>
-      <Header />
-      <Outlet />
-      <Footer />
-    </UserContext.Provider>
-   </Provider>
+    <Provider store={store}>
+      <UserContext.Provider value={{ seller: seller, setSeller: setSeller }}>
+        <Header />
+        <Outlet />
+        <Footer />
+      </UserContext.Provider>
+    </Provider>
   );
 };
 // here we do nexted route configuration , in this configuration header and footer component will always there the only what change is outlet according route
@@ -63,15 +64,15 @@ const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <Applayout />,
-    errorElement: <Error />, 
-    children: [ 
+    errorElement: <Error />,
+    children: [
       {
         path: "/",
-        element: <Home/>,
+        element: <Home />,
       },
       {
         path: "/restaurant",
-        element: <Restaurant/>,
+        element: <Restaurant />,
       },
       {
         path: "/about",
@@ -87,7 +88,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <AuthPage/>,
+        element: <AuthPage />,
       },
       {
         path: "/restaurant/:id",
@@ -148,7 +149,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/homekitchen",
-        element: <HomeKitchen/>,
+        element: <HomeKitchen />,
       },
       {
         path: "/books",
@@ -156,47 +157,49 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/clothing",
-        element: <Clothing/>,
+        element: <Clothing />,
       },
       {
         path: "/toys",
-        element: <Toys/>,
+        element: <Toys />,
       },
       {
         path: "/mobiles",
-        element: <Mobiles/>,
+        element: <Mobiles />,
       },
       {
         path: "/termcondition",
-        element: <TermCondition/>,
+        element: <TermCondition />,
       },
       {
         path: "/privacypolicy",
-        element: <PrivacyPolicy/>,
+        element: <PrivacyPolicy />,
       },
       {
         path: "/products",
-        element: <Products/>,
+        element: <Products />,
       },
       {
-        path:"/review",
-        element:<Review/>
+        path: "/review",
+        element: <Review />,
       },
       {
-        path:"/soldby",
-        element:<SoldBy/>
+        path: "/soldby",
+        element: <SoldBy />,
       },
       {
-        path:"/trending",
-        element:<Trending/>
+        path: "/trending",
+        element: <Trending />,
       },
       {
-        path:"/mybooking",
-        element:<MyBooking/>
+        path: "/mybooking",
+        element: <MyBooking />,
+      },
+      {
+        path: "/fashion/:id4",
+        element: <SpecificSectionData />,
       }
-
-
-
+     
     ],
   },
 ]);
