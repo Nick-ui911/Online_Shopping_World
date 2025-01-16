@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams,Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addItem } from "../utils/CartSlice";
+import { addItem } from "../utils/BookingSlice";
 import StarRating from "./StarRating";
 import useSpecificDineIn from "../utils/useSpecificDineIn";
 import { Shimmer } from "./shimmer";

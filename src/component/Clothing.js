@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ClothingData from "./ClothingData";
-import { Link } from "react-router-dom";
+
 
 const Clothing = () => {
   const [activeSection, setActiveSection] = useState(null);
