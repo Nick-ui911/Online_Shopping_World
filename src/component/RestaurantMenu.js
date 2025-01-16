@@ -45,17 +45,10 @@ const RestaurantMenu = () => {
             className="restaurant-image"
           />
           <div className="additional-data">
-            <div className="nav-buttons">
-              <button
-                onClick={() => handleButtonClick("/review")}
-                className="nav-button"
-              >
-                Reviews
-              </button>
-            </div>
-            <div className="star-rating-section">
-              <StarRating />
-            </div>
+              <div className="rating">
+            <StarRating />
+            <span>(0 Reviews)</span>
+          </div>
           </div>
         </div>
         <div className="details-section">

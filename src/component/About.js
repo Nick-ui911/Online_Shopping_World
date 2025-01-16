@@ -1,11 +1,21 @@
 import { useState } from "react";
-const Nick = ({ description, isVisible, setIsVisible }) => {
+
+const Nick = ({ title, description, isVisible, setIsVisible }) => {
   return (
     <div className="accordion-item">
-      <button onClick={setIsVisible} className="accordion-button">
-        {isVisible ? "Hide" : "Show"}
+      <button
+        onClick={setIsVisible}
+        className="accordion-button"
+        aria-expanded={isVisible ? "true" : "false"}
+        aria-controls={title}
+      >
+        {isVisible ? "Hide Details" : "Show Details"}
       </button>
-      {isVisible && <p>{description}</p>}
+      {isVisible && (
+        <div id={title} className="accordion-content">
+          <p>{description}</p>
+        </div>
+      )}
     </div>
   );
 };
@@ -15,24 +25,27 @@ const About1 = () => {
 
   return (
     <div className="accordion-container">
-      <h1>Organization Name : Alphawizz</h1>
-      <h2>About :</h2>
+      <h1 className="organization-title">Organization Name: <span className="highlight-text">Alphawizz</span></h1>
+      <h2>About the Organization:</h2>
       <Nick
-        description="This is a description Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-        isVisible={visibleSection === "show1"}
+        title="about"
+        description="Alphawizz is a leading tech company focusing on innovation and quality in the software industry. Our mission is to provide cutting-edge solutions to our clients while maintaining a work environment that encourages growth and creativity."
+        isVisible={visibleSection === "about"}
         setIsVisible={() =>
-          setVisibleSection(visibleSection === "show1" ? null : "show1")
+          setVisibleSection(visibleSection === "about" ? null : "about")
         }
       />
-<h2>Employee Details :</h2>
-<Nick
-        description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-        isVisible={visibleSection === "show2"}
+      <h2>Employee Details:</h2>
+      <Nick
+        title="employees"
+        description="We are a dynamic and diverse team at Alphawizz, passionate about technology and driven to make an impact in the world. Our employees come from various backgrounds, bringing a wealth of experience and unique perspectives to the company."
+        isVisible={visibleSection === "employees"}
         setIsVisible={() =>
-          setVisibleSection(visibleSection === "show2" ? null : "show2")
+          setVisibleSection(visibleSection === "employees" ? null : "employees")
         }
       />
     </div>
   );
 };
+
 export default About1;

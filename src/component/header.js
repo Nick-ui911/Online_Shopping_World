@@ -52,7 +52,7 @@ const Header = () => {
             </li>
             <li>
               <Link className="nav-link" to="/mybooking">
-                BOOKING
+                BOOKINGS
               </Link>
             </li>
             <li>

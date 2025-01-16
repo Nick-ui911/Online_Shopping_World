@@ -1,120 +1,118 @@
-import React, { useState, useEffect } from "react";
-import { useParams, useNavigate,Link } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addItem } from "../utils/CartSlice";
 import StarRating from "./StarRating";
 import UserContext from "../utils/UserContext";
-import { useContext } from "react";
 import useSpecificTrending from "../utils/useSpecificTrending";
 import { Shimmer } from "./shimmer";
-import Swal from 'sweetalert2';
-import 'sweetalert2/src/sweetalert2.scss';
-import TrendingData from "./TrendingData";
-import useTrending from '../utils/useTrending';
+import Swal from "sweetalert2";
 
 
 const SpecificTrending = () => {
   const { id3 } = useParams();
-  const [item,error,loading] = useSpecificTrending(id3);
+  const [item, error, loading] = useSpecificTrending(id3);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [trending] = useTrending();
+  const { seller } = useContext(UserContext);
 
   if (loading) {
-    return <Shimmer/>
+    return <Shimmer />;
   }
 
   if (error) {
     return <div>Error: {error}</div>;
   }
 
-  const { seller } = useContext(UserContext);
-
-
-  const addTrendingItem = (item) => {
+  const addTrendingItem = () => {
     dispatch(addItem(item));
     Swal.fire({
-      title: '<h3 style="color: #4CAF50;">Item Added!</h3>',
-      html: `<p style="font-size: 16px;">${item.name} has been added to your cart.</p>`,
-      icon: 'success',
-      confirmButtonText: '<span style="color: white;">Continue Shopping</span>',
-      background: '#fefae0', // Custom background color
-      iconColor: '#4CAF50', // Custom icon color
-      customClass: {
-        popup: 'custom-popup',
-        confirmButton: 'custom-confirm-button',
-      },
+      title: "Item Added!",
+      text: `${item.name} has been added to your cart.`,
+      icon: "success",
+      confirmButtonText: "OK",
     });
   };
 
-  const handleButtonClick = (route) => {
-    navigate(route);
+  const checkAvailability = () => {
+    Swal.fire({
+      title: "Check Availability",
+      text: "Availability checked for the provided zip code.",
+      icon: "info",
+      confirmButtonText: "OK",
+    });
+  };
+  const addFav = () => {
+    Swal.fire({
+      title: "Add to Favorites",
+      text: "Added To Favorites",
+      icon: "info",
+      confirmButtonText: "OK",
+    });
   };
 
-
   return (
-  <>
-    <div className="instaitem-container">
-      {/* Image Section */}
-      <div className="image-section">
-        <img src={item.image} alt={item.name} className="item-image" />
-      </div>
-
-      {/* Details Section */}
-      <div className="details-section">
-        <h1 className="item-name">{item.name}</h1>
-        <h2 className="item-price"> {item.price}</h2>
-        <p className="item-description">{item.description}</p>
-        <div className="button-container">
-          <button
-            onClick={() => addTrendingItem(item)}
-            className="order-button"
-          >
-            ADD TO CART
-          </button>
+    <>
+      <div className="specific-item-container">
+        {/* Left Section */}
+        <div className="left-section">
+          <div className="main-image">
+            <img
+              src={item.image || "https://via.placeholder.com/300"}
+              alt={item.name}
+              className="product-image"
+            />
+          </div>
+          <div className="additional-images">
+            {[...Array(3)].map((_, index) => (
+              <img
+                key={index}
+                src={item.image || "https://via.placeholder.com/100"}
+                alt={`Extra ${index}`}
+                className="additional-image"
+              />
+            ))}
+          </div>
         </div>
-        <h4>Seller:{seller.name}</h4>
-      </div>
 
-      {/* Additional Navigation */}
-      <div className="additional-data">
-        <div className="nav-buttons">
-          <button
-            onClick={() => handleButtonClick("/review")}
-            className="nav-button"
-          >
-            Reviews
-          </button>
-          <button
-            onClick={() => handleButtonClick("/soldby")}
-            className="nav-button"
-          >
-            Sold By
-          </button>
-        </div>
-        <div className="star-rating-section">
-          <StarRating />
+        {/* Right Section */}
+        <div className="right-section">
+          <h1 className="product-title">{item.name}</h1>
+        
+          <div className="rating">
+            <StarRating />
+            <span>(0 Reviews)</span>
+          </div>
+          <div className="price-section">
+            <span className="current-price">{item.price}</span>
+            <span className="original-price">{item.price + 1}</span>
+          </div>
+          <div className="availability-check">
+            <input
+              type="text"
+              placeholder="Zipcode"
+              className="zipcode-input"
+            />
+            <button onClick={checkAvailability} className="check-btn">
+              Check Availability
+            </button>
+          </div>
+        
+          <div className="action-buttons">
+            <button
+              onClick={addTrendingItem}
+              className="add-to-cart-btn"
+            >
+              Add to Cart
+            </button>
+            <button className="add-to-favorite-btn" onClick={addFav}>Add to Favorite</button>
+          </div>
+          <div className="seller-info">
+            Seller: <span className="seller-name">{seller.name}</span>
+          </div>
         </div>
       </div>
-     
-
-    </div>
-     <div className="related-heading">
-     <h1>Related Product</h1>
-     <p>Explore the Related Products</p>
-   </div>
-   <div className="allcards">
-     {trending.length === 0 ? (
-       <div>No trending items found.</div>
-     ) : (
-       trending.map((item) => (
-         <Link className="nick" to={`/trending/${item.id}`} key={item.id}>
-           <TrendingData {...item} />
-         </Link>
-       ))
-     )}
-   </div>
-  </>
+    </>
   );
 };
 
