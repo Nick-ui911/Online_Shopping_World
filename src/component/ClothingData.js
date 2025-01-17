@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { filterData } from "../utils/helper";
 
+// Function to filter data by size
+const filterBySize = (data, size) => {
+  if (!size) return data; // Return all data if no size is selected
+  return data.filter((item) => item.size === size);
+};
+
 const ClothingData = ({ activeSection, data, loading, error, searchTerm }) => {
-  // Filter data based on the search term
-  const filteredData = searchTerm
-    ? filterData(searchTerm, data)
-    : data; // Show all data if searchTerm is empty
+  const [selectedSize, setSelectedSize] = useState("");
+
+  // Filter data based on search term and selected size
+  const filteredData = data
+    ? filterBySize(
+        searchTerm ? filterData(searchTerm, data) : data,
+        selectedSize
+      )
+    : [];
 
   return (
     <div className="clothing-data">
@@ -15,6 +26,23 @@ const ClothingData = ({ activeSection, data, loading, error, searchTerm }) => {
       {data && (
         <div>
           <h2 className="section-title">{activeSection?.toUpperCase()} Section</h2>
+
+          {/* Size Filter Dropdown */}
+          <div className="filter-container">
+            <label htmlFor="size-filter">Filter by Size: </label>
+            <select
+              id="size-filter"
+              value={selectedSize}
+              onChange={(e) => setSelectedSize(e.target.value)}
+            >
+              <option value="">All Sizes</option>
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+              <option value="XL">XL</option>
+            </select>
+          </div>
+
           <div className="cards-container">
             {filteredData.length > 0 ? (
               filteredData.map((item) => (
@@ -27,7 +55,7 @@ const ClothingData = ({ activeSection, data, loading, error, searchTerm }) => {
                   <div className="card-info">
                     <h4 className="card-title">{item.name}</h4>
                     <p className="card-price">{item.price}</p>
-                    {/* View Details Link */}
+                    <p className="card-size">Size: {item.size}</p>
                     <Link
                       to={`/fashion/${item.id}?section=${activeSection}`}
                       className="view-details"
@@ -38,7 +66,7 @@ const ClothingData = ({ activeSection, data, loading, error, searchTerm }) => {
                 </div>
               ))
             ) : (
-              <p>No items found matching your search.</p>
+              <p>No items found matching your criteria.</p>
             )}
           </div>
         </div>

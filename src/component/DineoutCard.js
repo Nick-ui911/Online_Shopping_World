@@ -3,7 +3,7 @@ const DineoutCard = ({ id, image, name, time, address, addToCart }) => {
     <div className="dineout-card">
       <div className="image-section">
         <img src={image} alt={name} className="restaurant-image" />
-        <div className="button-container"></div>
+        
       </div>
       <div className="details-section">
         <h2 className="restaurant-name">{name}</h2>

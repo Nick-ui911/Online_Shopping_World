@@ -20,9 +20,9 @@ const MyBooking = () => {
 
   return (
     <div className="cart-container">
-      <h1 className="cart-title">Your Cart</h1>
+      <h1 className="cart-title">Your Booking</h1>
       <button className="clear-cart-btn" onClick={handleClearCart}>
-        Clear Cart
+        Clear All Booking
       </button>
       <div className="cart-items">
         {bookingItem.map((item,index) => (

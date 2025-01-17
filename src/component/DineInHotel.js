@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams,Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addItem } from "../utils/BookingSlice";
 import StarRating from "./StarRating";
@@ -10,32 +10,48 @@ import Swal from "sweetalert2";
 import useDineIn from "../utils/useDineIn";
 import "sweetalert2/src/sweetalert2.scss";
 import DineoutCard from "./DineoutCard";
+import DateTimePicker from "react-datetime-picker"; 
+import 'react-datetime-picker/dist/DateTimePicker.css';
+import 'react-calendar/dist/Calendar.css';
+import 'react-clock/dist/Clock.css';
 
 const DineInHotel = () => {
   const { id2 } = useParams();
   const [Ditem, error, isLoading] = useSpecificDineIn(id2);
   const [data] = useDineIn();
-
+  const [bookingDateTime, setBookingDateTime] = useState(new Date()); // Use react-datetime-picker state
   const onlinecheck = useOnline();
+
   if (!onlinecheck) {
     return <Offline />;
   }
-  if (isLoading === true) return <Shimmer />;
+  if (isLoading) return <Shimmer />;
   if (error) return <p>Error: {error}</p>;
 
   const dispatch = useDispatch();
 
   const addHotelItem = (item) => {
-    dispatch(addItem(item));
+    if (!bookingDateTime) {
+      Swal.fire({
+        title: "Date and Time Required",
+        text: "Please select a date and time before booking.",
+        icon: "warning",
+        confirmButtonText: "OK",
+      });
+      return;
+    }
+
+    dispatch(addItem({ ...item, bookingDateTime })); // Include booking time in Redux action
+
     Swal.fire({
       title: '<h3 style="color: #4CAF50;">Booking Confirmed!</h3>',
-      html: `<p style="font-size: 16px;">You have successfully booked <b>${Ditem.name}</b>.<br>
-             Address: ${Ditem.address}<br>
-             Time: ${Ditem.time}</p>`,
+      html: `<p style="font-size: 16px;">You have successfully booked <b>${item.name}</b>.<br>
+             Address: ${item.address}<br>
+             Booking Time: ${bookingDateTime.toLocaleString()}</p>`,
       icon: "success",
       confirmButtonText: '<span style="color: white;">OK</span>',
-      background: "#f3f4ed", // Custom background color
-      iconColor: "#4CAF50", // Custom icon color
+      background: "#f3f4ed",
+      iconColor: "#4CAF50",
       customClass: {
         popup: "custom-popup",
         confirmButton: "custom-confirm-button",
@@ -44,39 +60,47 @@ const DineInHotel = () => {
   };
 
   return (
-  <>
-    <div className="dinein-container">
-      <div className="image-section">
-        <img src={Ditem.image} alt={Ditem.name} className="hotel-image" />
-        <div className="additional-data">
-          <div className="nav-buttons">
+    <>
+      <div className="dinein-container">
+        <div className="image-section">
+          <img src={Ditem.image} alt={Ditem.name} className="hotel-image" />
+          <div className="additional-data">
+            <div className="nav-buttons">
+            <span>(0 Reviews)</span>
+            </div>
+            <div className="star-rating-section">
+              <StarRating />
+            </div>
+          </div>
+          <div className="button-container">
+            <label htmlFor="booking-datetime" className="datetime-label">
+              Select Date and Time:
+            </label>
+            <DateTimePicker
+              id="booking-datetime"
+              onChange={setBookingDateTime} // Update state on selection
+              value={bookingDateTime} // Bind value to state
+              className="datetime-picker"
+            />
             <button
-              onClick={() => handleButtonClick("/review")}
-              className="nav-button"
+              className="order-button"
+              onClick={() => addHotelItem(Ditem)}
             >
-              Reviews
+              BOOK NOW
             </button>
           </div>
-          <div className="star-rating-section">
-            <StarRating />
-          </div>
         </div>
-        <div className="button-container">
-          <button className="order-button" onClick={() => addHotelItem(Ditem)}>
-            BOOK NOW
-          </button>
+        <div className="details-section">
+          <h2 className="hotel-name">{Ditem.name}</h2>
+          <h3 className="hotel-time">{Ditem.time}</h3>
+          <h4 className="hotel-address">{Ditem.address}</h4>
         </div>
       </div>
-      <div className="details-section">
-        <h2 className="hotel-name">{Ditem.name}</h2>
-        <h3 className="hotel-time">{Ditem.time}</h3>
-        <h4 className="hotel-address">{Ditem.address}</h4>
+      
+      <div className="related-heading">
+        <h1>Related DineInHotel</h1>
       </div>
-    </div>
-    <div className="related-heading">
-      <h1>Related DineInHotel</h1>
-    </div>
-    <div className="allcards">
+      <div className="allcards">
         {data.length > 0 ? (
           data.map((dineIn) => (
             <Link className="nick" to={`/dineout/${dineIn.id}`} key={dineIn.id}>
@@ -87,7 +111,9 @@ const DineInHotel = () => {
           <h1>No data available</h1>
         )}
       </div>
-  </>
+
+      
+    </>
   );
 };
 

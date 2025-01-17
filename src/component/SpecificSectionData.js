@@ -6,7 +6,6 @@ import StarRating from "./StarRating";
 import Swal from "sweetalert2";
 import UserContext from "../utils/UserContext";
 
-
 const SpecificSectionData = () => {
   const { id4 } = useParams();
   const location = useLocation();
@@ -14,6 +13,7 @@ const SpecificSectionData = () => {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  
 
   const apiBaseUrl = "http://localhost:3500";
 
@@ -50,14 +50,22 @@ const SpecificSectionData = () => {
       confirmButtonText: "OK",
     });
   };
-   const checkAvailability = () => {
-      Swal.fire({
-        title: "Check Availability",
-        text: "Availability checked for the provided zip code.",
-        icon: "info",
-        confirmButtonText: "OK",
-      });
-    };
+  const checkAvailability = () => {
+    Swal.fire({
+      title: "Check Availability",
+      text: "Availability checked for the provided zip code.",
+      icon: "info",
+      confirmButtonText: "OK",
+    });
+  };
+  const addFav = () => {
+    Swal.fire({
+      title: "Add to Favorites",
+      text: "Added To Favorites",
+      icon: "info",
+      confirmButtonText: "OK",
+    });
+  };
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
@@ -78,7 +86,8 @@ const SpecificSectionData = () => {
           <div className="product-title">{product.name}</div>
           <div className="product-description">{product.description}</div>
           <div className="product-price">
-            {product.price} <span className="original-price">{product.price + 1}</span>
+            {product.price}{" "}
+            <span className="original-price">{product.price + 1}</span>
           </div>
           <div className="rating">
             <StarRating />
@@ -97,7 +106,7 @@ const SpecificSectionData = () => {
             >
               Add to Cart
             </button>
-            <button className="action-button add-to-favorite">
+            <button className="action-button add-to-favorite" onClick={addFav}>
               Add to Favorite
             </button>
           </div>
