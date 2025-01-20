@@ -9,17 +9,17 @@ import { Shimmer } from "./shimmer";
 import CarouselImage from "./CarouselImage";
 
 const Instamart = () => {
-  const [item, allitem,loading, setItem, setAllItem,error] = useInstamartItem();
+  const [item, allitem, loading, setItem, setAllItem, error] =
+    useInstamartItem();
   const [searchtxt, setSearchTxt] = useState("");
+  // State for sorting price
 
   const onlinecheck = useOnline();
   if (!onlinecheck) {
-    return (
-      <Offline/>
-    )
+    return <Offline />;
   }
-   if (loading === true) return <Shimmer />;
-   if (error) return <p>Error: {error}</p>; // Display error message if there is an error
+  if (loading === true) return <Shimmer />;
+  if (error) return <p>Error: {error}</p>;
 
   if (item.length === 0) {
     return (
@@ -28,6 +28,15 @@ const Instamart = () => {
       </>
     );
   }
+
+  const handlePriceSort = (order) => {
+    const sortedItems = [...item].sort((a, b) => {
+      if (order === "asc") return a.price - b.price;
+      if (order === "desc") return b.price - a.price;
+      return 0;
+    });
+    setItem(sortedItems);
+  };
 
   return (
     <>
@@ -56,19 +65,30 @@ const Instamart = () => {
         >
           Search
         </button>
+        {/* price sort */}
+        <select
+          className="priceSortDropdown"
+          onChange={(e) => {
+            const order = e.target.value;
+
+            handlePriceSort(order);
+          }}
+        >
+          <option value="">Sort by Price</option>
+          <option value="asc">Low to High</option>
+          <option value="desc">High to Low</option>
+        </select>
       </div>
-      <CarouselImage/>
-      {/* <p> you typed : {searchtxt}</p> */}
+      <CarouselImage />
       <div className="allcards">
-        {item.map((val) => {
-          return (
-            <Link className="nick" to={`/instamart/${val.id}`} key={val.id}>
-              <InstaCard {...val} />
-            </Link>
-          );
-        })}
+        {item.map((val) => (
+          <Link className="nick" to={`/instamart/${val.id}`} key={val.id}>
+            <InstaCard {...val} />
+          </Link>
+        ))}
       </div>
     </>
   );
 };
+
 export default Instamart;

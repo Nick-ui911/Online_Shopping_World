@@ -36,6 +36,7 @@ import Trending from "./component/Trending";
 import MyBooking from "./component/MyBooking";
 import AuthPage from "./component/AuthPage";
 import SpecificSectionData from "./component/SpecificSectionData";
+import Favorite from "./component/Favorite";
 
 
 // import Dineout from "./component/Dineout";
@@ -198,6 +199,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/fashion/:id4",
         element: <SpecificSectionData />,
+      },
+      {
+        path: "/favorite",
+        element: <Favorite/>,
       }
      
     ],

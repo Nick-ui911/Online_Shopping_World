@@ -10,6 +10,7 @@ import { Shimmer } from "./shimmer";
 import InstaCard from "./Instacard";
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2';
+import { addFavItem } from "../utils/FavSlice";
 
 const Instaitem = () => {
   const { id1 } = useParams();
@@ -28,10 +29,10 @@ const Instaitem = () => {
   }
 
   const addInstaItem = (item) => {
-    dispatch(addItem(item));
+    dispatch(addItem(mitem));
     Swal.fire({
       title: '<h3 style="color: #4CAF50;">Item Added!</h3>',
-      html: `<p style="font-size: 16px;">${item.name} has been added to your cart.</p>`,
+      html: `<p style="font-size: 16px;">${mitem.name} has been added to your cart.</p>`,
       icon: 'success',
       confirmButtonText: '<span style="color: white;">Continue Shopping</span>',
       background: '#fefae0',
@@ -52,6 +53,7 @@ const Instaitem = () => {
     });
   };
    const addFav = () => {
+       dispatch(addFavItem(mitem));
       Swal.fire({
         title: "Add to Favorites",
         text: "Added To Favorites",

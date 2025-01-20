@@ -26,7 +26,9 @@ const BookingItem = ({
         <h3 className="food-item-name">{item}</h3>
         <p className="food-item-price">${price}</p>
         <h3 className="food-item-address">{address}</h3>
-        <h3 className="food-item-time">{`Booking Time: ${bookingDateTime || "Not specified"}`}</h3>
+        <h3 className="food-item-time">{`Booking Time: ${
+          bookingDateTime || "Not specified"
+        }`}</h3>
         <button className="remove-item-btn" onClick={() => removeCartItem()}>
           Remove
         </button>

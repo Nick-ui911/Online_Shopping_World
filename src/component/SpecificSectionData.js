@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addItem } from "../utils/CartSlice";
+import { addFavItem } from "../utils/FavSlice";
 import StarRating from "./StarRating";
 import Swal from "sweetalert2";
 import UserContext from "../utils/UserContext";
@@ -41,7 +42,7 @@ const SpecificSectionData = () => {
 
   const dispatch = useDispatch();
 
-  const addFoodItem = (item) => {
+  const addClothItem = (item) => {
     dispatch(addItem(item));
     Swal.fire({
       title: "Item Added!",
@@ -59,6 +60,7 @@ const SpecificSectionData = () => {
     });
   };
   const addFav = () => {
+     dispatch(addFavItem(product));
     Swal.fire({
       title: "Add to Favorites",
       text: "Added To Favorites",
@@ -80,7 +82,6 @@ const SpecificSectionData = () => {
             alt={product.name}
           />
         </div>
-
         {/* Right Section */}
         <div className="product-details-section">
           <div className="product-title">{product.name}</div>
@@ -102,7 +103,7 @@ const SpecificSectionData = () => {
           <div className="action-buttons">
             <button
               className="action-button add-to-cart"
-              onClick={() => addFoodItem(product)}
+              onClick={() => addClothItem(product)}
             >
               Add to Cart
             </button>

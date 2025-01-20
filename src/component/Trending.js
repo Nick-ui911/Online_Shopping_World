@@ -29,6 +29,15 @@ const Trending = () => {
   if (error) {
     return <div>Error: {error}</div>;
   }
+  const handlePriceSort = (order) => {
+    const sortedItems = [...trending].sort((a, b) => {
+      if (order === "asc") return a.price - b.price;
+      if (order === "desc") return b.price - a.price;
+      return 0;
+    });
+    setTrending(sortedItems);
+  };
+
 
   return (
     <>
@@ -46,6 +55,19 @@ const Trending = () => {
         <button className="searchbtn" onClick={handleSearch}>
           Search
         </button>
+          {/* price sort */}
+          <select
+          className="priceSortDropdown"
+          onChange={(e) => {
+            const order = e.target.value;
+
+            handlePriceSort(order);
+          }}
+        >
+          <option value="">Sort by Price</option>
+          <option value="asc">Low to High</option>
+          <option value="desc">High to Low</option>
+        </select>
       </div>
 
       <div className="heading">

@@ -635,16 +635,17 @@ const Instamart = ()=>{
     _s();
     const [item, allitem, loading, setItem, setAllItem, error] = (0, _useInstamartDefault.default)();
     const [searchtxt, setSearchTxt] = (0, _react.useState)("");
+    // State for sorting price
     const onlinecheck = (0, _useOnlineDefault.default)();
     if (!onlinecheck) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _offlineDefault.default), {}, void 0, false, {
         fileName: "src/component/instamart.js",
-        lineNumber: 18,
-        columnNumber: 7
+        lineNumber: 19,
+        columnNumber: 12
     }, undefined);
     if (loading === true) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmer.Shimmer), {}, void 0, false, {
         fileName: "src/component/instamart.js",
         lineNumber: 21,
-        columnNumber: 33
+        columnNumber: 32
     }, undefined);
     if (error) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
         children: [
@@ -654,8 +655,8 @@ const Instamart = ()=>{
     }, void 0, true, {
         fileName: "src/component/instamart.js",
         lineNumber: 22,
-        columnNumber: 22
-    }, undefined); // Display error message if there is an error
+        columnNumber: 21
+    }, undefined);
     if (item.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
             children: "No data found!"
@@ -665,6 +666,16 @@ const Instamart = ()=>{
             columnNumber: 9
         }, undefined)
     }, void 0, false);
+    const handlePriceSort = (order)=>{
+        const sortedItems = [
+            ...item
+        ].sort((a, b)=>{
+            if (order === "asc") return a.price - b.price;
+            if (order === "desc") return b.price - a.price;
+            return 0;
+        });
+        setItem(sortedItems);
+    };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -686,7 +697,7 @@ const Instamart = ()=>{
                         }
                     }, void 0, false, {
                         fileName: "src/component/instamart.js",
-                        lineNumber: 35,
+                        lineNumber: 44,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -698,48 +709,83 @@ const Instamart = ()=>{
                         children: "Search"
                     }, void 0, false, {
                         fileName: "src/component/instamart.js",
-                        lineNumber: 50,
+                        lineNumber: 59,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
+                        className: "priceSortDropdown",
+                        onChange: (e)=>{
+                            const order = e.target.value;
+                            handlePriceSort(order);
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
+                                value: "",
+                                children: "Sort by Price"
+                            }, void 0, false, {
+                                fileName: "src/component/instamart.js",
+                                lineNumber: 77,
+                                columnNumber: 11
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
+                                value: "asc",
+                                children: "Low to High"
+                            }, void 0, false, {
+                                fileName: "src/component/instamart.js",
+                                lineNumber: 78,
+                                columnNumber: 11
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
+                                value: "desc",
+                                children: "High to Low"
+                            }, void 0, false, {
+                                fileName: "src/component/instamart.js",
+                                lineNumber: 79,
+                                columnNumber: 11
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/component/instamart.js",
+                        lineNumber: 69,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/component/instamart.js",
-                lineNumber: 34,
+                lineNumber: 43,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _carouselImageDefault.default), {}, void 0, false, {
                 fileName: "src/component/instamart.js",
-                lineNumber: 60,
+                lineNumber: 82,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "allcards",
-                children: item.map((val)=>{
-                    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                children: item.map((val)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                         className: "nick",
                         to: `/instamart/${val.id}`,
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _instacardDefault.default), {
                             ...val
                         }, void 0, false, {
                             fileName: "src/component/instamart.js",
-                            lineNumber: 66,
-                            columnNumber: 15
+                            lineNumber: 86,
+                            columnNumber: 13
                         }, undefined)
                     }, val.id, false, {
                         fileName: "src/component/instamart.js",
-                        lineNumber: 65,
-                        columnNumber: 13
-                    }, undefined);
-                })
+                        lineNumber: 85,
+                        columnNumber: 11
+                    }, undefined))
             }, void 0, false, {
                 fileName: "src/component/instamart.js",
-                lineNumber: 62,
+                lineNumber: 83,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true);
 };
-_s(Instamart, "+XeC/ZeR9FMwhlXOhZ0sJs51inM=", false, function() {
+_s(Instamart, "RYpd8RFmiUs3rzwkG/zQ/gGurbI=", false, function() {
     return [
         (0, _useInstamartDefault.default),
         (0, _useOnlineDefault.default)

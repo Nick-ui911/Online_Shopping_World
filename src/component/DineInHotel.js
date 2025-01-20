@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addItem } from "../utils/BookingSlice";
+import { addFavItem } from "../utils/FavSlice";
 import StarRating from "./StarRating";
 import useSpecificDineIn from "../utils/useSpecificDineIn";
 import { Shimmer } from "./shimmer";
@@ -58,6 +59,18 @@ const DineInHotel = () => {
       },
     });
   };
+    const addFav = () => {
+      dispatch(addFavItem(Ditem));
+   
+     
+      Swal.fire({
+        title: "Add to Favorites",
+        text: "Added To Favorites",
+        icon: "info",
+        confirmButtonText: "OK",
+      });
+    };
+  
 
   return (
     <>
@@ -72,8 +85,7 @@ const DineInHotel = () => {
               <StarRating />
             </div>
           </div>
-          <div className="button-container">
-            <label htmlFor="booking-datetime" className="datetime-label">
+          <label htmlFor="booking-datetime" className="datetime-label">
               Select Date and Time:
             </label>
             <DateTimePicker
@@ -82,12 +94,15 @@ const DineInHotel = () => {
               value={bookingDateTime} // Bind value to state
               className="datetime-picker"
             />
+          <div className="action-buttons">
+          
             <button
-              className="order-button"
+              className="add-to-cart-btn"
               onClick={() => addHotelItem(Ditem)}
             >
               BOOK NOW
             </button>
+            <button className="add-to-favorite-btn" onClick={addFav}>Add to Favorite</button>
           </div>
         </div>
         <div className="details-section">

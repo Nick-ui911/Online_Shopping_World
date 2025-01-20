@@ -31,6 +31,14 @@ const RestaurantMenu = () => {
       },
     });
   };
+    const addFav = () => {
+      Swal.fire({
+        title: "Add to Favorites",
+        text: "Added To Favorites",
+        icon: "info",
+        confirmButtonText: "OK",
+      });
+    };
 
   if (loading === true) return <Shimmer />;
   if (error) return <p>Error: {error}</p>;
@@ -45,15 +53,22 @@ const RestaurantMenu = () => {
             className="restaurant-image"
           />
           <div className="additional-data">
+          <div className="action-buttons">
+           <button className="action-button add-to-favorite" onClick={addFav}>
+              Add to Favorite
+            </button>
+        </div>
               <div className="rating">
             <StarRating />
             <span>(0 Reviews)</span>
           </div>
+         
           </div>
         </div>
+        
         <div className="details-section">
           <h1 className="restaurant-name">
-            Restaurant Name: {restaurant.name}
+            {restaurant.name}
           </h1>
           <h2 className="menu-title">Menu:</h2>
           <div className="menu-items">
@@ -68,7 +83,7 @@ const RestaurantMenu = () => {
                   {menuItem.item} - ${menuItem.price}
                   <div className="button-container">
                     <button
-                      className="order-button"
+                      className="action-button add-to-cart"
                       onClick={() => addFoodItem(menuItem)}
                     >
                       ADD TO CART

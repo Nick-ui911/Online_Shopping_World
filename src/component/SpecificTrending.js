@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addItem } from "../utils/CartSlice";
+import { addFavItem } from "../utils/FavSlice";
 import StarRating from "./StarRating";
 import UserContext from "../utils/UserContext";
 import useSpecificTrending from "../utils/useSpecificTrending";
@@ -43,6 +44,9 @@ const SpecificTrending = () => {
     });
   };
   const addFav = () => {
+    dispatch(addFavItem(item));
+  
+   
     Swal.fire({
       title: "Add to Favorites",
       text: "Added To Favorites",
@@ -84,7 +88,7 @@ const SpecificTrending = () => {
             <span>(0 Reviews)</span>
           </div>
           <div className="price-section">
-            <span className="current-price">{item.price}</span>
+            <span className="current-price">${item.price}</span>
             <span className="original-price">{item.price + 1}</span>
           </div>
           <div className="availability-check">

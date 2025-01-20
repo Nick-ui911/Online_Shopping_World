@@ -9,7 +9,10 @@ const BookingSlice = createSlice({
     // Add a booking to the items array
     addItem: (state, action) => {
       // Spread the payload to create a new booking entry
-      state.items.push({ ...action.payload });
+      const exists = state.items.some((item) => item.id === action.payload.id);
+      if (!exists) {
+        state.items.push(action.payload); // Add only if it doesn't exist
+      }
     },
 
     // Remove a booking from the items array based on the item's id

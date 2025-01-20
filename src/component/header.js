@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
+import { MdFavorite } from "react-icons/md";
 
 const Header = () => {
   return (
@@ -44,7 +45,7 @@ const Header = () => {
                 DINEOUT
               </Link>
             </li>
-           
+
             <li>
               <Link className="nav-link" to="/trending">
                 TRENDING
@@ -53,6 +54,11 @@ const Header = () => {
             <li>
               <Link className="nav-link" to="/mybooking">
                 BOOKINGS
+              </Link>
+            </li>
+            <li>
+              <Link className="nav-link fav" to="/favorite">
+                <MdFavorite />
               </Link>
             </li>
             <li>
