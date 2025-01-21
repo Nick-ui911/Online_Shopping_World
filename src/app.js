@@ -37,6 +37,9 @@ import MyBooking from "./component/MyBooking";
 import AuthPage from "./component/AuthPage";
 import SpecificSectionData from "./component/SpecificSectionData";
 import Favorite from "./component/Favorite";
+import SkinCare from "./component/SkinCare";
+import HairCare from "./component/HairCare";
+import SpecificHairCare from "./component/SpecificHairCare";
 
 
 // import Dineout from "./component/Dineout";
@@ -203,6 +206,20 @@ const appRouter = createBrowserRouter([
       {
         path: "/favorite",
         element: <Favorite/>,
+      },
+      {
+        path: "/skincare",
+        element:<SkinCare/>
+      },
+      {
+        path: "/haircare",
+        element: <HairCare/>
+
+      },
+      {
+        path:"/beauty-and-care/hairCare/:id5",
+        element:<SpecificHairCare/>
+       
       }
      
     ],

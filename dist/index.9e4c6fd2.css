@@ -77,18 +77,26 @@ body {
   transition: background-color .3s;
 }
 
-@media screen and (width <= 768px) {
-  .header, .nav-item ul {
+@media (width <= 768px) {
+  .nav-item {
+    z-index: 1000;
+    background: #333;
     flex-direction: column;
-    align-items: flex-start;
+    width: 100%;
+    padding: 10px 0;
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 0;
   }
 
-  .nav-item ul li {
-    margin: 10px 0;
+  .nav-item ul {
+    flex-direction: column;
+    gap: 10px;
   }
 
-  .button-login {
-    margin-top: 15px;
+  .menu-toggle {
+    display: block;
   }
 }
 
@@ -2056,12 +2064,6 @@ h2 {
   box-shadow: 0 4px 8px #0000001a;
 }
 
-.card-image {
-  object-fit: cover;
-  width: 100%;
-  height: 200px;
-}
-
 .card-info {
   text-align: center;
   padding: 15px;
@@ -2071,12 +2073,6 @@ h2 {
   color: #333;
   margin-bottom: 5px;
   font-size: 18px;
-  font-weight: bold;
-}
-
-.card-price {
-  color: #007bff;
-  font-size: 16px;
   font-weight: bold;
 }
 
@@ -2609,11 +2605,6 @@ h2 {
   box-shadow: 0 4px 6px #0000001a;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 12px #0003;
-}
-
 .card-image {
   width: 100%;
   height: auto;
@@ -2649,5 +2640,86 @@ h2 {
 
 .view-details:hover {
   background-color: #0056b3;
+}
+
+.beauty-container {
+  text-align: center;
+  background-color: #f9f9f9;
+  padding: 50px;
+  font-family: Arial, sans-serif;
+}
+
+.beauty-title {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+}
+
+.beauty-subtitle {
+  color: #666;
+  margin-bottom: 30px;
+  font-size: 1.2rem;
+}
+
+.beauty-buttons {
+  justify-content: center;
+  gap: 20px;
+  display: flex;
+}
+
+.beauty-btn {
+  cursor: pointer;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  transition: all .3s ease-in-out;
+}
+
+.skincare-btn {
+  background-color: #ff6f61;
+}
+
+.haircare-btn {
+  background-color: #4caf50;
+}
+
+.beauty-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px #0003;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px #0000001a;
+}
+
+.card-image {
+  object-fit: cover;
+  width: 100%;
+  height: 200px;
+}
+
+.card-details {
+  padding: 15px;
+}
+
+.card-name {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.card-description {
+  color: #666;
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+.card-price {
+  color: #ff6f61;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 /*# sourceMappingURL=index.9e4c6fd2.css.map */

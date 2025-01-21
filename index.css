@@ -87,25 +87,29 @@ body {
 }
 
 /* Responsive Design */
-@media screen and (max-width: 768px) {
-  .header {
+@media (max-width: 768px) {
+  .nav-item {
+    display: none;
     flex-direction: column;
-    align-items: flex-start;
+    background: #333;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    padding: 10px 0;
+    z-index: 1000;
   }
 
   .nav-item ul {
     flex-direction: column;
-    align-items: flex-start;
+    gap: 10px;
   }
 
-  .nav-item ul li {
-    margin: 10px 0;
-  }
-
-  .button-login {
-    margin-top: 15px;
+  .menu-toggle {
+    display: block;
   }
 }
+
 
 
 .card{
@@ -2878,6 +2882,94 @@ h2 {
 .view-details:hover {
   background-color: #0056b3;
 }
+/* Container Styles */
+.beauty-container {
+  text-align: center;
+  padding: 50px;
+  background-color: #f9f9f9;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Title and Subtitle */
+.beauty-title {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.beauty-subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* Button Styles */
+.beauty-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.beauty-btn {
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  color: #fff;
+}
+
+.skincare-btn {
+  background-color: #ff6f61;
+}
+
+.haircare-btn {
+  background-color: #4caf50;
+}
+
+.beauty-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+/* Card Container */
+
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Image */
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Card Details */
+.card-details {
+  padding: 15px;
+}
+
+.card-name {
+  font-size: 1.5rem;
+  color: #333333;
+  margin-bottom: 10px;
+}
+
+.card-description {
+  font-size: 1rem;
+  color: #666666;
+  margin-bottom: 15px;
+}
+
+.card-price {
+  font-size: 1.2rem;
+  color: #ff6f61;
+  font-weight: bold;
+}
+
 
 
 
