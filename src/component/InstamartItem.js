@@ -9,7 +9,7 @@ import useSpecificInstaItem from "../utils/useSpecificInstamartItem";
 import { Shimmer } from "./shimmer";
 import InstaCard from "./Instacard";
 import { Link } from "react-router-dom";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 import { addFavItem } from "../utils/FavSlice";
 
 const Instaitem = () => {
@@ -33,13 +33,13 @@ const Instaitem = () => {
     Swal.fire({
       title: '<h3 style="color: #4CAF50;">Item Added!</h3>',
       html: `<p style="font-size: 16px;">${mitem.name} has been added to your cart.</p>`,
-      icon: 'success',
+      icon: "success",
       confirmButtonText: '<span style="color: white;">Continue Shopping</span>',
-      background: '#fefae0',
-      iconColor: '#4CAF50',
+      background: "#fefae0",
+      iconColor: "#4CAF50",
       customClass: {
-        popup: 'custom-popup',
-        confirmButton: 'custom-confirm-button',
+        popup: "custom-popup",
+        confirmButton: "custom-confirm-button",
       },
     });
   };
@@ -52,16 +52,15 @@ const Instaitem = () => {
       confirmButtonText: "OK",
     });
   };
-   const addFav = () => {
-       dispatch(addFavItem(mitem));
-      Swal.fire({
-        title: "Add to Favorites",
-        text: "Added To Favorites",
-        icon: "info",
-        confirmButtonText: "OK",
-      });
-    };
-  
+  const addFav = () => {
+    dispatch(addFavItem(mitem));
+    Swal.fire({
+      title: "Add to Favorites",
+      text: "Added To Favorites",
+      icon: "info",
+      confirmButtonText: "OK",
+    });
+  };
 
   return (
     <>
@@ -100,12 +99,16 @@ const Instaitem = () => {
 
           <div className="action-buttons">
             <button
+              // Use an arrow function to prevent React from passing the event object
+              // to the handler. This ensures that only the item object is passed.
               onClick={() => addInstaItem(mitem)}
               className="add-to-cart-btn"
             >
               Add to Cart
             </button>
-            <button className="add-to-favorite-btn" onClick={addFav}>Add to Favorite</button>
+            <button className="add-to-favorite-btn" onClick={addFav}>
+              Add to Favorite
+            </button>
           </div>
           <div className="seller-info">
             Seller: <span className="seller-name">{seller.name}</span>
@@ -115,11 +118,15 @@ const Instaitem = () => {
 
       {/* Related Products */}
       <div className="related-products">
-        <h2>Related Products</h2>
+        <h2 className="related-heading">Related Products</h2>
         <div className="allcards">
           {item.map((val) => {
             return (
-              <Link className="product-link" to={`/instamart/${val.id}`} key={val.id}>
+              <Link
+                className="product-link"
+                to={`/instamart/${val.id}`}
+                key={val.id}
+              >
                 <InstaCard {...val} />
               </Link>
             );

@@ -112,9 +112,9 @@ const DineInHotel = () => {
         </div>
       </div>
       
-      <div className="related-heading">
-        <h1>Related DineInHotel</h1>
-      </div>
+     
+        <h1 className="related-heading">Related DineInHotel</h1>
+      
       <div className="allcards">
         {data.length > 0 ? (
           data.map((dineIn) => (

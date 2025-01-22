@@ -5,7 +5,7 @@ const useHairCare = () => {
 
 
 
- const [item, setItem] = useState([]);
+ const [items, setItems] = useState([]);
   const [filterItem, setFilterItem] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -20,7 +20,7 @@ const useHairCare = () => {
         throw new Error("Network response was not ok");
       }
       const json = await data.json();
-      setItem(json);
+      setItems(json);
       setFilterItem(json);
     } catch (error) {
       console.error("Error fetching restaurants:", error);
@@ -28,7 +28,7 @@ const useHairCare = () => {
       setLoading(false);
     }
   }
-  return [item,filterItem,setFilterItem,loading];
+  return [items,filterItem,setFilterItem,loading];
 
 
 

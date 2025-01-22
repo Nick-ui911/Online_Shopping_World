@@ -40,6 +40,10 @@ import Favorite from "./component/Favorite";
 import SkinCare from "./component/SkinCare";
 import HairCare from "./component/HairCare";
 import SpecificHairCare from "./component/SpecificHairCare";
+import SpecificSkinCare from "./component/SpecificSkinCare";
+import TVs from "./component/TVs";
+import WashinMachine from "./component/WashinMachine";
+import Refrigerator from "./component/Refrigerator";
 
 
 // import Dineout from "./component/Dineout";
@@ -220,6 +224,22 @@ const appRouter = createBrowserRouter([
         path:"/beauty-and-care/hairCare/:id5",
         element:<SpecificHairCare/>
        
+      },
+      {
+        path:"/beauty-and-care/skinCare/:id6",
+        element:<SpecificSkinCare/>
+      },
+      {
+        path:"/TVs",
+        element:<TVs/>
+      },
+      {
+        path:"/washingmachine",
+        element:<WashinMachine/>
+      },
+      {
+        path:"refrigerator",
+        element:<Refrigerator/>
       }
      
     ],

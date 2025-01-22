@@ -9,7 +9,7 @@ import useHairCare from "../utils/useHairCare";
 import HairCard from "./HairCard";
 
 const HairCare = () => {
-  const [item, filterItem, setFilterItem, loading] = useHairCare();
+  const [items, filterItem, setFilterItem, loading] = useHairCare();
   const [searchTxt, setSearchTxt] = useState("");
   const onlineCheck = useOnline();
 
@@ -18,6 +18,14 @@ const HairCare = () => {
   }
 
   if (loading) return <Shimmer />;
+  const handlePriceSort = (order) => {
+    const sortedItems = [...items].sort((a, b) => {
+      if (order === "asc") return a.price - b.price;
+      if (order === "desc") return b.price - a.price;
+      return 0;
+    });
+    setFilterItem(sortedItems);
+  };
 
   return (
     <>
@@ -31,7 +39,7 @@ const HairCare = () => {
           onChange={(e) => setSearchTxt(e.target.value)}
           onKeyDown={(e) => {
             if (e.key === "Enter") {
-              const data = filterData(searchTxt, item);
+              const data = filterData(searchTxt, items);
               setFilterItem(data);
             }
           }}
@@ -39,12 +47,25 @@ const HairCare = () => {
         <button
           className="searchbtn"
           onClick={() => {
-            const data = filterData(searchTxt, item);
+            const data = filterData(searchTxt, items);
             setFilterItem(data);
           }}
         >
           Search
         </button>
+           {/* price sort */}
+           <select
+          className="priceSortDropdown"
+          onChange={(e) => {
+            const order = e.target.value;
+
+            handlePriceSort(order);
+          }}
+        >
+          <option value="">Sort by Price</option>
+          <option value="asc">Low to High</option>
+          <option value="desc">High to Low</option>
+        </select>
       </div>
 
       {/* Skincare Cards */}

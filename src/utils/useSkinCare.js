@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 
 const useSkinCare = () => {
-  const [item, setItem] = useState([]);
+  const [items, setItems] = useState([]);
   const [filterItem, setFilterItem] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -17,7 +17,7 @@ const useSkinCare = () => {
         throw new Error("Network response was not ok");
       }
       const json = await data.json();
-      setItem(json);
+      setItems(json);
       setFilterItem(json);
     } catch (error) {
       console.error("Error fetching restaurants:", error);
@@ -25,7 +25,7 @@ const useSkinCare = () => {
       setLoading(false);
     }
   }
-  return [item,filterItem,setFilterItem,loading];
+  return [items,filterItem,setFilterItem,loading];
 };
 
 export default useSkinCare;

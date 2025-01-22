@@ -9,7 +9,6 @@ import useSpecificTrending from "../utils/useSpecificTrending";
 import { Shimmer } from "./shimmer";
 import Swal from "sweetalert2";
 
-
 const SpecificTrending = () => {
   const { id3 } = useParams();
   const [item, error, loading] = useSpecificTrending(id3);
@@ -45,8 +44,7 @@ const SpecificTrending = () => {
   };
   const addFav = () => {
     dispatch(addFavItem(item));
-  
-   
+
     Swal.fire({
       title: "Add to Favorites",
       text: "Added To Favorites",
@@ -82,7 +80,7 @@ const SpecificTrending = () => {
         {/* Right Section */}
         <div className="right-section">
           <h1 className="product-title">{item.name}</h1>
-        
+
           <div className="rating">
             <StarRating />
             <span>(0 Reviews)</span>
@@ -101,15 +99,19 @@ const SpecificTrending = () => {
               Check Availability
             </button>
           </div>
-        
+
           <div className="action-buttons">
             <button
-              onClick={addTrendingItem}
+              // Use an arrow function to prevent React from passing the event object
+              // to the handler. This ensures that only the item object is passed.
+              onClick={() => addTrendingItem(item)}
               className="add-to-cart-btn"
             >
               Add to Cart
             </button>
-            <button className="add-to-favorite-btn" onClick={addFav}>Add to Favorite</button>
+            <button className="add-to-favorite-btn" onClick={addFav}>
+              Add to Favorite
+            </button>
           </div>
           <div className="seller-info">
             Seller: <span className="seller-name">{seller.name}</span>

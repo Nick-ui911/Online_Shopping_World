@@ -2969,6 +2969,37 @@ h2 {
   color: #ff6f61;
   font-weight: bold;
 }
+.related-heading {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem; /* Adjust size as needed */
+  font-weight: bold;
+  text-align: center;
+  color: #4CAF50; /* Use a vibrant or brand-specific color */
+  text-transform: uppercase; /* Makes the text all caps */
+  letter-spacing: 2px; /* Adds spacing between letters */
+  margin-bottom: 20px; /* Adds space below the heading */
+  position: relative; /* Enables pseudo-element styling */
+
+  /* Optional animation for hover effect */
+  transition: color 0.3s ease;
+}
+
+.related-heading::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%);
+  width: 50%; /* Line width, adjust as needed */
+  height: 3px; /* Line height */
+  background: #4CAF50; /* Line color */
+  border-radius: 10px; /* Rounded edges for the line */
+}
+
+.related-heading:hover {
+  color: #388E3C; /* Slightly darker shade for hover */
+}
+
 
 
 

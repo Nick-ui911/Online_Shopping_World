@@ -1,4 +1,4 @@
-import { useParams,Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { Shimmer } from "./shimmer";
 import useRestaurant from "../utils/useRestaurant";
 import { useDispatch } from "react-redux";
@@ -12,8 +12,7 @@ import "sweetalert2/src/sweetalert2.scss";
 const RestaurantMenu = () => {
   const { id } = useParams();
   const [restaurant, loading, error] = useRestaurant(id);
-  const [filteredRestaurants] =
-  useBody();
+  const [filteredRestaurants] = useBody();
   const dispatch = useDispatch();
 
   const addFoodItem = (item) => {
@@ -31,14 +30,14 @@ const RestaurantMenu = () => {
       },
     });
   };
-    const addFav = () => {
-      Swal.fire({
-        title: "Add to Favorites",
-        text: "Added To Favorites",
-        icon: "info",
-        confirmButtonText: "OK",
-      });
-    };
+  const addFav = () => {
+    Swal.fire({
+      title: "Add to Favorites",
+      text: "Added To Favorites",
+      icon: "info",
+      confirmButtonText: "OK",
+    });
+  };
 
   if (loading === true) return <Shimmer />;
   if (error) return <p>Error: {error}</p>;
@@ -53,23 +52,23 @@ const RestaurantMenu = () => {
             className="restaurant-image"
           />
           <div className="additional-data">
-          <div className="action-buttons">
-           <button className="action-button add-to-favorite" onClick={addFav}>
-              Add to Favorite
-            </button>
-        </div>
-              <div className="rating">
-            <StarRating />
-            <span>(0 Reviews)</span>
+            <div className="action-buttons">
+              <button
+                className="action-button add-to-favorite"
+                onClick={addFav}
+              >
+                Add to Favorite
+              </button>
+            </div>
+            <div className="rating">
+              <StarRating />
+              <span>(0 Reviews)</span>
+            </div>
           </div>
-         
-          </div>
         </div>
-        
+
         <div className="details-section">
-          <h1 className="restaurant-name">
-            {restaurant.name}
-          </h1>
+          <h1 className="restaurant-name">{restaurant.name}</h1>
           <h2 className="menu-title">Menu:</h2>
           <div className="menu-items">
             {restaurant.menu && restaurant.menu.length > 0 ? (
@@ -83,6 +82,8 @@ const RestaurantMenu = () => {
                   {menuItem.item} - ${menuItem.price}
                   <div className="button-container">
                     <button
+                      // Use an arrow function to prevent React from passing the event object
+                      // to the handler. This ensures that only the item object is passed.
                       className="action-button add-to-cart"
                       onClick={() => addFoodItem(menuItem)}
                     >
@@ -100,8 +101,8 @@ const RestaurantMenu = () => {
           <h2 className="restaurant-address">Address: {restaurant.address}</h2>
         </div>
       </div>
-      <div className="related-heading">
-        <h1>Related Restaurant</h1>
+      <div >
+        <h1 className="related-heading">Related Restaurant</h1>
       </div>
       <div className="allcards">
         {filteredRestaurants.length > 0 ? (

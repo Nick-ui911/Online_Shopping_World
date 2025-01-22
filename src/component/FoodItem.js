@@ -24,6 +24,7 @@ const FoodItem = ({ id, name,item, price, image ,address,time,quantity}) => {
       <img src={image} alt={item} className="food-item-image" />
       <div className="food-item-details">
         <h3 className="food-item-name">{item}</h3>
+        <h3 className="food-item-name">{name}</h3>
         <p className="food-item-price">${price}</p>
         <h3 className="food-item-address">{address}</h3>
         <h3 className="food-item-time">{time}</h3>
