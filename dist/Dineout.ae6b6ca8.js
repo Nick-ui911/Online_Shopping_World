@@ -698,7 +698,7 @@ const Dineout = ()=>{
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "allcards",
+                className: "allcards trending-container",
                 children: data.length > 0 ? data.map((dineIn)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                         className: "nick",
                         to: `/dineout/${dineIn.id}`,

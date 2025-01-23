@@ -676,7 +676,8 @@ const Instamart = ()=>{
         });
         setItem(sortedItems);
     };
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "trending-container",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "search-container",
@@ -761,7 +762,7 @@ const Instamart = ()=>{
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "allcards",
+                className: "allcards trending-container",
                 children: item.map((val)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                         className: "nick",
                         to: `/instamart/${val.id}`,
@@ -783,7 +784,11 @@ const Instamart = ()=>{
                 columnNumber: 7
             }, undefined)
         ]
-    }, void 0, true);
+    }, void 0, true, {
+        fileName: "src/component/instamart.js",
+        lineNumber: 42,
+        columnNumber: 5
+    }, undefined);
 };
 _s(Instamart, "RYpd8RFmiUs3rzwkG/zQ/gGurbI=", false, function() {
     return [

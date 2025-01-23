@@ -22,7 +22,7 @@ const Restaurant = () => {
  
 
   return (
-    <>
+    <div className="trending-container">
     
       <div className="searchBar">
         <input
@@ -59,7 +59,7 @@ const Restaurant = () => {
         src="https://alphasilver.productsalphawizz.com/uploads/media/2024/7mdfskoasdhgoihgio047805.png"
       />
       </div>
-      <div className="allcards">
+      <div className="allcards trending-container">
         {filteredRestaurants.length > 0 ? (
           filteredRestaurants.map((restaurant) => (
             <Link
@@ -74,7 +74,7 @@ const Restaurant = () => {
           <h1>No data available</h1>
         )}
       </div>
-    </>
+    </div>
   );
 };
 

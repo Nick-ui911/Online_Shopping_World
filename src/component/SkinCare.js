@@ -68,7 +68,7 @@ const SkinCare = () => {
       </div>
 
       {/* Skincare Cards */}
-      <div className="allcards">
+      <div className="allcards  trending-container">
         {filterItem.length > 0 ? (
           filterItem.map((item) => (
             <Link

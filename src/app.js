@@ -13,7 +13,7 @@ import { Shimmer } from "./component/shimmer";
 import Instaitem from "./component/InstamartItem";
 import About from "./component/About";
 import DineInHotel from "./component/DineInHotel";
-import UserAddress from "./component/UserAddress";
+import UserAddress from "./utils/UserAddress";
 import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 import store from "./utils/store";
@@ -42,7 +42,7 @@ import HairCare from "./component/HairCare";
 import SpecificHairCare from "./component/SpecificHairCare";
 import SpecificSkinCare from "./component/SpecificSkinCare";
 import TVs from "./component/TVs";
-import WashinMachine from "./component/WashinMachine";
+import WashingMachine from "./component/WashingMachine";
 import Refrigerator from "./component/Refrigerator";
 
 
@@ -235,7 +235,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path:"/washingmachine",
-        element:<WashinMachine/>
+        element:<WashingMachine/>
       },
       {
         path:"refrigerator",

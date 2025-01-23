@@ -53,7 +53,7 @@ const Dineout = () => {
           Search
         </button>
       </div>
-      <div className="allcards">
+      <div className="allcards trending-container">
         {data.length > 0 ? (
           data.map((dineIn) => (
             <Link className="nick" to={`/dineout/${dineIn.id}`} key={dineIn.id}>

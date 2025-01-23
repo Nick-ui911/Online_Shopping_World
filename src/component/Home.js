@@ -169,15 +169,11 @@ const Home = () => {
           </Carousel>
         </div>
       </div>
-      <div className="trending">
-        <Trending />
-      </div>
-     <DownloadSection/>
-    <BelowDownloadSection/>
 
+      <Trending />
 
-
-
+      <DownloadSection />
+      <BelowDownloadSection />
     </>
   );
 };

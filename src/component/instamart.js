@@ -39,7 +39,7 @@ const Instamart = () => {
   };
 
   return (
-    <>
+    <div className="trending-container">
       <div className="search-container">
         <input
           type="text"
@@ -80,14 +80,14 @@ const Instamart = () => {
         </select>
       </div>
       <CarouselImage />
-      <div className="allcards">
+      <div className="allcards trending-container">
         {item.map((val) => (
           <Link className="nick" to={`/instamart/${val.id}`} key={val.id}>
             <InstaCard {...val} />
           </Link>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

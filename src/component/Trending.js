@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import TrendingData from "./TrendingData";
 import { Shimmer } from "./shimmer";
-import { filterData } from "../utils/helper";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { filterData } from "../utils/helper";
 import useTrending from "../utils/useTrending";
+
 
 const Trending = () => {
   const [trending, setTrending, searchTrending, loading, error] = useTrending();
@@ -11,24 +11,13 @@ const Trending = () => {
 
   const handleSearch = () => {
     if (searchTxt.trim() === "") {
-      setTrending(searchTrending); // Reset to the original data
+      setTrending(searchTrending);
     } else {
       const filteredData = filterData(searchTxt, searchTrending);
       setTrending(filteredData);
     }
   };
 
-  if (loading) {
-    return (
-      <div>
-        <Shimmer />
-      </div>
-    );
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
   const handlePriceSort = (order) => {
     const sortedItems = [...trending].sort((a, b) => {
       if (order === "asc") return a.price - b.price;
@@ -38,54 +27,57 @@ const Trending = () => {
     setTrending(sortedItems);
   };
 
+  if (loading) {
+    return <Shimmer />;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   return (
-    <>
-      <div className="Trending-search-Bar">
+    <div className="trending-container ">
+      <div className="trending-header">
+        <h1>Trending Products</h1>
+        <p>Explore the latest trends</p>
+      </div>
+      <div className="trending-controls">
         <input
           type="text"
-          className="inputbox"
-          placeholder="Search Trending item...."
+          className="search-input"
+          placeholder="Search Trending items..."
           value={searchTxt}
           onChange={(e) => setSearchTxt(e.target.value)}
           onKeyDown={(e) => {
             if (e.key === "Enter") handleSearch();
           }}
         />
-        <button className="searchbtn" onClick={handleSearch}>
+        <button className="search-button" onClick={handleSearch}>
           Search
         </button>
-          {/* price sort */}
-          <select
-          className="priceSortDropdown"
-          onChange={(e) => {
-            const order = e.target.value;
-
-            handlePriceSort(order);
-          }}
+        <select
+          className="price-sort-dropdown"
+          onChange={(e) => handlePriceSort(e.target.value)}
         >
           <option value="">Sort by Price</option>
           <option value="asc">Low to High</option>
           <option value="desc">High to Low</option>
         </select>
       </div>
-
-      <div className="heading">
-        <h1>Trendings</h1>
-        <p>Explore the latest trends</p>
-      </div>
-      <div className="allcards">
+      <div className="trending-products">
         {trending.length === 0 ? (
           <div>No trending items found.</div>
         ) : (
           trending.map((item) => (
-            <Link className="nick" to={`/trending/${item.id}`} key={item.id}>
-              <TrendingData {...item} />
+            <Link className="product-card" to={`/trending/${item.id}`} key={item.id}>
+              <img src={item.image} alt={item.name} />
+              <h3>{item.name}</h3>
+              <p>Price: ${item.price.toFixed(2)}</p>
             </Link>
           ))
         )}
       </div>
-    </>
+    </div>
   );
 };
 
