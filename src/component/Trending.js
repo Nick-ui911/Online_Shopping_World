@@ -41,7 +41,7 @@ const Trending = () => {
         <h1>Trending Products</h1>
         <p>Explore the latest trends</p>
       </div>
-      <div className="trending-controls">
+      <div className="search-controls">
         <input
           type="text"
           className="search-input"
