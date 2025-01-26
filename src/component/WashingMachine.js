@@ -77,7 +77,11 @@ const WashingMachine = () => {
 
       <div className="allcards trending-container">
         {items.map((val) => (
-          <Link className="nick" key={val.id}>
+          <Link
+            className="nick"
+            to={`/electronics/WashingMachine/${val.id}`}
+            key={val.id}
+          >
             <WashingMachineData {...val} />
           </Link>
         ))}

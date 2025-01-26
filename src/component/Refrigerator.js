@@ -77,7 +77,7 @@ const Refrigerator = () => {
   
     <div className="allcards trending-container">
       {items.map((val) => (
-        <Link className="nick" key={val.id}>
+        <Link className="nick"to={`/electronics/Refrigerator/${val.id}`} key={val.id}>
           <RefrigeratorData {...val} />
         </Link>
       ))}

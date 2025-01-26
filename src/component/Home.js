@@ -51,54 +51,49 @@ const Home = () => {
       image:
         "https://alphasilver.productsalphawizz.com/uploads/media/2024/Grocery_Gourmet_Food1.jpeg",
     },
+
     {
       id: 4,
-      name: " FITNESS",
-      link: "/fitness",
-      image:
-        "https://alphasilver.productsalphawizz.com/uploads/media/2024/Fitness.jpeg",
-    },
-    {
-      id: 5,
       name: " DINEOUT",
       link: "/dineout",
       image:
         "https://www.dineout.co.in/blog/wp-content/uploads/2019/11/rsz_101.jpg",
     },
     {
-      id: 6,
+      id: 5,
       name: "BEAUTY",
       link: "/beauty",
       image:
         "https://alphasilver.productsalphawizz.com/uploads/media/2024/Beauty_Personal_Care_.jpg",
     },
+
     {
-      id: 7,
-      name: "HOME&KITCHEN",
-      link: "/homekitchen",
-      image:
-        "https://alphasilver.productsalphawizz.com/uploads/media/2024/Home_Kitchen.jpeg",
-    },
-    {
-      id: 8,
-      name: "STATIONARY",
-      link: "/stationary",
-      image:
-        "https://alphasilver.productsalphawizz.com/uploads/media/2024/Stationery_.jpeg",
-    },
-    {
-      id: 9,
+      id: 6,
       name: "ELECTRONICS",
       link: "/electronics",
       image:
         "https://alphasilver.productsalphawizz.com/uploads/media/2024/Electronicss1.jpeg",
     },
     {
-      id: 10,
+      id: 7,
+      name: "MOBILES",
+      link: "/mobiles",
+      image:
+        "https://images.samsung.com/is/image/samsung/assets/in/explore/brand/5-best-android-mobile-phones-2022-in-india/banner-mobile-720x761-080422.jpg?$720_N_JPG$",
+    },
+    {
+      id: 8,
       name: "BOOKS",
       link: "/books",
       image:
         "https://alphasilver.productsalphawizz.com/uploads/media/2024/Books.jpeg",
+    },
+    {
+      id: 9,
+      name: "HOME&KITCHEN",
+      link: "/homekitchen",
+      image:
+        "https://alphasilver.productsalphawizz.com/uploads/media/2024/Home_Kitchen.jpeg",
     },
     {
       id: 10,
@@ -107,12 +102,20 @@ const Home = () => {
       image:
         "https://alphasilver.productsalphawizz.com/uploads/media/2024/_Toys_Games.jpeg",
     },
+
     {
-      id: 10,
-      name: "MOBILES",
-      link: "/mobiles",
+      id: 11,
+      name: "STATIONARY",
+      link: "/stationary",
       image:
-        "https://images.samsung.com/is/image/samsung/assets/in/explore/brand/5-best-android-mobile-phones-2022-in-india/banner-mobile-720x761-080422.jpg?$720_N_JPG$",
+        "https://alphasilver.productsalphawizz.com/uploads/media/2024/Stationery_.jpeg",
+    },
+    {
+      id: 12,
+      name: " FITNESS",
+      link: "/fitness",
+      image:
+        "https://alphasilver.productsalphawizz.com/uploads/media/2024/Fitness.jpeg",
     },
   ];
   const [item, setItem] = useState(carouselItems);

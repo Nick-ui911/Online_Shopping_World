@@ -87,8 +87,8 @@ const SpecificSectionData = () => {
           <div className="product-title">{product.name}</div>
           <div className="product-description">{product.description}</div>
           <div className="product-price">
-            {product.price}{" "}
-            <span className="original-price">{product.price + 1}</span>
+            ${product.price}{" "}
+            <span className="original-price">${product.price + 1}</span>
           </div>
           <div className="rating">
             <StarRating />

@@ -64,7 +64,7 @@ const Instaitem = () => {
 
   return (
     <>
-      <div className="specific-item-container">
+      <div className="specific-item-container trending-container">
         {/* Left Section */}
         <div className="left-section">
           <div className="main-image">
@@ -117,6 +117,7 @@ const Instaitem = () => {
       </div>
 
       {/* Related Products */}
+      <div className="trending-container">
       <div className="related-products">
         <h2 className="related-heading">Related Products</h2>
         <div className="allcards">
@@ -133,6 +134,8 @@ const Instaitem = () => {
           })}
         </div>
       </div>
+      </div>
+     
     </>
   );
 };

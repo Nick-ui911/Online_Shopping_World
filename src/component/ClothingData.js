@@ -20,7 +20,7 @@ const ClothingData = ({ activeSection, data, loading, error, searchTerm }) => {
     : [];
 
   return (
-    <div className="clothing-data">
+    <div className="clothing-data trending-container">
       {loading && <p className="loading">Loading data...</p>}
       {error && <p className="error">{error}</p>}
       {data && (

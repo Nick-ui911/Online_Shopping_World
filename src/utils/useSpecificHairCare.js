@@ -18,7 +18,7 @@ const useSpecificHairCare = (id5) => {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         let json = await response.json();
-        setItem(json);
+        setItem(json); 
   
       } catch (error) {
         setError(error.message);

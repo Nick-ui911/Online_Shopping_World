@@ -58,7 +58,7 @@ const SpecificSkinCare = () => {
 
   return (
     <>
-      <div className="specific-item-container">
+      <div className="specific-item-container trending-container ">
         {/* Left Section */}
         <div className="left-section">
           <div className="main-image">
@@ -119,6 +119,9 @@ const SpecificSkinCare = () => {
       </div>
 
       {/* related product */}
+  
+
+    <div className="trending-container">
     <div className="related-products">
       <h2 className="related-heading">Related Products</h2>
       <div className="allcards">
@@ -126,7 +129,7 @@ const SpecificSkinCare = () => {
             return (
               <Link
                 className="product-link"
-                to={`/instamart/${val.id}`}
+                to={`/beauty-and-care/skinCare/${val.id}`}
                 key={val.id}
               >
                 <SkinCard {...val} />
@@ -134,6 +137,7 @@ const SpecificSkinCare = () => {
             );
           })}
         </div>
+    </div>
     </div>
     </>
   );

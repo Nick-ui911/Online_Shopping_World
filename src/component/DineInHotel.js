@@ -74,7 +74,7 @@ const DineInHotel = () => {
 
   return (
     <>
-      <div className="dinein-container">
+      <div className="dinein-container trending-container">
         <div className="image-section">
           <img src={Ditem.image} alt={Ditem.name} className="hotel-image" />
           <div className="additional-data">
@@ -111,9 +111,8 @@ const DineInHotel = () => {
           <h4 className="hotel-address">{Ditem.address}</h4>
         </div>
       </div>
-      
-     
-        <h1 className="related-heading">Related DineInHotel</h1>
+      <div className="trending-container">
+      <h1 className="related-heading">Related DineInHotel</h1>
       
       <div className="allcards">
         {data.length > 0 ? (
@@ -126,6 +125,10 @@ const DineInHotel = () => {
           <h1>No data available</h1>
         )}
       </div>
+
+      </div>
+     
+      
 
       
     </>

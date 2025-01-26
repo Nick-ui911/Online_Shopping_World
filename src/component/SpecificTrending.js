@@ -55,7 +55,7 @@ const SpecificTrending = () => {
 
   return (
     <>
-      <div className="specific-item-container">
+      <div className="specific-item-container trending-container">
         {/* Left Section */}
         <div className="left-section">
           <div className="main-image">

@@ -44,6 +44,14 @@ import SpecificSkinCare from "./component/SpecificSkinCare";
 import TVs from "./component/TVs";
 import WashingMachine from "./component/WashingMachine";
 import Refrigerator from "./component/Refrigerator";
+import SpecificTVs from "./component/SpecificTVs";
+import SpecificRefrigerator from "./component/SpecificRefrigerator";
+import SpecificWashingMachine from "./component/SpecificWashingMachine";
+import Samsung from "./component/Samsung";
+import Apple from "./component/Apple";
+import Xaomi from "./component/Xaomi";
+import Poco from "./component/Poco";
+import Oneplus from "./component/Oneplus";
 
 
 // import Dineout from "./component/Dineout";
@@ -240,6 +248,37 @@ const appRouter = createBrowserRouter([
       {
         path:"refrigerator",
         element:<Refrigerator/>
+      },
+      {
+        path:"/electronics/TVs/:id7",
+        element:<SpecificTVs/>
+      },
+      {
+        path:"/electronics/Refrigerator/:id9",
+        element:<SpecificRefrigerator/>
+      },
+      {
+        path:"/electronics/WashingMachine/:id8",
+        element:<SpecificWashingMachine/>
+      },{
+        path:"/samsung",
+        element:<Samsung/>
+      },
+      {
+        path:"/apple",
+        element:<Apple/>
+      },
+      {
+        path:"/xaomi",
+        element:<Xaomi/>
+      },
+      {
+        path:"/oneplus",
+        element:<Oneplus/>
+      },
+      {
+        path:"/poco",
+        element:<Poco/>
       }
      
     ],

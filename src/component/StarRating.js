@@ -6,7 +6,7 @@ const StarRating = () => {
 
   return (
     <div className="review-section">
-      <h3>Rate this Product</h3>
+      <h3 className="starheading">Please Rate It</h3>
       <div className="stars">
         {[...Array(5)].map((_, index) => {
           const starValue = index + 1;

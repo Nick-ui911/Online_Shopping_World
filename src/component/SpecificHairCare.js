@@ -1,4 +1,3 @@
-import React from "react";
 import { useEffect, useState , useContext} from "react";
 import { useParams, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -58,7 +57,7 @@ const SpecificHairCare = () => {
 
   return (
     <>
-      <div className="specific-item-container">
+      <div className="specific-item-container trending-container">
         {/* Left Section */}
         <div className="left-section">
           <div className="main-image">
@@ -117,14 +116,17 @@ const SpecificHairCare = () => {
           </div>
         </div>
       </div>
-      <div className="related-products">
+    
+    
+    <div className="trending-container">
+    <div className="related-products">
       <h2 className="related-heading">Related Products</h2>
       <div className="allcards">
           {items.map((val) => {
             return (
               <Link
                 className="product-link"
-                to={`/instamart/${val.id}`}
+                to={`/beauty-and-care/hairCare/${val.id}`}
                 key={val.id}
               >
                 <HairCard {...val} />
@@ -133,6 +135,8 @@ const SpecificHairCare = () => {
           })}
         </div>
     </div>
+    </div>
+    
     </>
   );
 };
