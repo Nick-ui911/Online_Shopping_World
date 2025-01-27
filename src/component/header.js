@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import { MdFavorite } from "react-icons/md";
+import LogoImg from '../assets/images/alphawizzlogo.png';
 
 const Header = () => {
   return (
     <>
       <div className="header navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <img
-          className="logo navbar-brand"
+          className="logo navbar-brand "
           alt="logo"
-          src="https://alphasilver.productsalphawizz.com/uploads/media/2024/newlogo22.png"
+          src= {LogoImg}
         />
 
         {/* Hamburger button */}

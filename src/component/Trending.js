@@ -42,9 +42,10 @@ const Trending = () => {
         <p>Explore the latest trends</p>
       </div>
       <div className="search-controls">
-        <input
+     
+      <input
           type="text"
-          className="search-input"
+          className="search-input form-control me-2 "
           placeholder="Search Trending items..."
           value={searchTxt}
           onChange={(e) => setSearchTxt(e.target.value)}
@@ -52,17 +53,25 @@ const Trending = () => {
             if (e.key === "Enter") handleSearch();
           }}
         />
-        <button className="search-button" onClick={handleSearch}>
+     
+      
+       <button className="search-button btn btn-outline-primary col-md-auto" onClick={handleSearch}>
           Search
         </button>
         <select
-          className="price-sort-dropdown"
-          onChange={(e) => handlePriceSort(e.target.value)}
-        >
-          <option value="">Sort by Price</option>
-          <option value="asc">Low to High</option>
-          <option value="desc">High to Low</option>
-        </select>
+        className="priceSortDropdown  btn btn-danger dropdown-toggle" 
+        onChange={(e) => {
+          const order = e.target.value;
+
+          handlePriceSort(order);
+        }}
+      >
+        <option value="">Sort by Price</option>
+        <option value="asc">Low to High</option>
+        <option value="desc">High to Low</option>
+      </select>
+      
+      <></>
       </div>
       <div className="trending-products">
         {trending.length === 0 ? (

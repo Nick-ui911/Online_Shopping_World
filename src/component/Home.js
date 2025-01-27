@@ -143,7 +143,7 @@ const Home = () => {
               if (e.key === "Enter") handleSearch();
             }}
           />
-          <button className="searchbtn" onClick={handleSearch}>
+          <button className="searchbtn btn btn-outline-primary" onClick={handleSearch}>
             Search
           </button>
         </div>

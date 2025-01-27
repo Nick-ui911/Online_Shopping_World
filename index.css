@@ -9,7 +9,7 @@ body {
 .header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between;  
   padding: 15px 20px;
   background-color: #ffffff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -2414,6 +2414,7 @@ p {
 .star-rating-section .star:hover {
   transform: scale(1.2); /* Add hover effect for stars */
 }
+
 .related-products .product-link {
   text-decoration: none; /* Removes underline from the link */
 }
@@ -2605,6 +2606,7 @@ p {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   width: 220px;
+  height: 350px; /* Set a fixed height */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 

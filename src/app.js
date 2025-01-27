@@ -49,9 +49,14 @@ import SpecificRefrigerator from "./component/SpecificRefrigerator";
 import SpecificWashingMachine from "./component/SpecificWashingMachine";
 import Samsung from "./component/Samsung";
 import Apple from "./component/Apple";
-import Xaomi from "./component/Xaomi";
+import Xiaomi from "./component/Xiaomi";
 import Poco from "./component/Poco";
 import Oneplus from "./component/Oneplus";
+import SpecificSamsung from "./component/SpecificSamsung";
+import SpecificApple from "./component/SpecificApple";
+import SpecificOneplus from "./component/SpecificOneplus";
+import SpecificXiaomi from "./component/SpecificXiaomi";
+import SpecificPoco from "./component/SpecificPoco";
 
 
 // import Dineout from "./component/Dineout";
@@ -269,8 +274,8 @@ const appRouter = createBrowserRouter([
         element:<Apple/>
       },
       {
-        path:"/xaomi",
-        element:<Xaomi/>
+        path:"/xiaomi",
+        element:<Xiaomi/>
       },
       {
         path:"/oneplus",
@@ -279,6 +284,26 @@ const appRouter = createBrowserRouter([
       {
         path:"/poco",
         element:<Poco/>
+      },{
+        path:"/Mobiles/Samsung/:id10",
+        element:<SpecificSamsung/>
+
+      },
+      {
+        path:"/Mobiles/Apple/:id11",
+        element:<SpecificApple/>
+      },
+      {
+        path:"/Mobiles/Oneplus/:id12",
+        element:<SpecificOneplus/>
+      },
+      {
+        path:"/Mobiles/Xiaomi/:id13",
+        element:<SpecificXiaomi/>
+      },
+      {
+        path:"/Mobiles/Poco/:id14",
+        element:<SpecificPoco/>
       }
      
     ],

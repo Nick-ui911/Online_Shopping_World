@@ -25,7 +25,7 @@ const SpecificTVs = () => {
     
       const addTVs = (item) => {
         dispatch(addItem(item));
-        console.log(item)
+        
         Swal.fire({
           title: '<h3 style="color: #4CAF50;">Item Added!</h3>',
           html: `<p style="font-size: 16px;">${item.name} has been added to your cart.</p>`,
