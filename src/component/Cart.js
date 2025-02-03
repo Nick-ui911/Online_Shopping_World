@@ -2,7 +2,6 @@ import React from "react";
 import useOnline from "../utils/useOnline";
 import Offline from "./Offline";
 import { useDispatch, useSelector } from "react-redux";
-import store from "../utils/store";
 import FoodItem from "./FoodItem";
 import { clearCart } from "../utils/CartSlice";
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import FavItem from './favItem';
+import FavItem from './FavItem';
 import React from "react";
 import useOnline from "../utils/useOnline";
 import Offline from "./Offline";

@@ -755,6 +755,130 @@ $RefreshReg$(_c, "Dineout");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./DineoutCard":"cDuqa","./shimmer":"bltIQ","../utils/useOnline":"74Yls","./Offline":"iYEaz","react-router-dom":"9xmpe","../utils/helper":"3GF3D","../utils/useDineIn":"awsNw","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["aQL8O","4K3Ob"], null, "parcelRequire94c2")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./DineoutCard":"cDuqa","./shimmer":"bltIQ","../utils/useOnline":"74Yls","./Offline":"iYEaz","react-router-dom":"9xmpe","../utils/helper":"3GF3D","../utils/useDineIn":"awsNw","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"cDuqa":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$d5d0 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$d5d0.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const DineoutCard = ({ id, image, name, time, address, addToCart })=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "card",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                src: image,
+                alt: name,
+                className: "card-image"
+            }, void 0, false, {
+                fileName: "src/component/DineoutCard.js",
+                lineNumber: 4,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "card-details",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                        className: "card-name",
+                        children: name
+                    }, void 0, false, {
+                        fileName: "src/component/DineoutCard.js",
+                        lineNumber: 6,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                        className: "restaurant-address",
+                        children: address
+                    }, void 0, false, {
+                        fileName: "src/component/DineoutCard.js",
+                        lineNumber: 7,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                        className: "restaurant-time",
+                        children: time
+                    }, void 0, false, {
+                        fileName: "src/component/DineoutCard.js",
+                        lineNumber: 8,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/component/DineoutCard.js",
+                lineNumber: 5,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/component/DineoutCard.js",
+        lineNumber: 3,
+        columnNumber: 5
+    }, undefined);
+};
+_c = DineoutCard;
+exports.default = DineoutCard;
+var _c;
+$RefreshReg$(_c, "DineoutCard");
+
+  $parcel$ReactRefreshHelpers$d5d0.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"awsNw":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$f6ac = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$f6ac.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _constants = require("../constants");
+var _s = $RefreshSig$();
+const useDineIn = ()=>{
+    _s();
+    const [data, setData] = (0, _react.useState)([]);
+    const [allData, setAllData] = (0, _react.useState)([]);
+    const [loading, setLoading] = (0, _react.useState)(true);
+    const [error, setError] = (0, _react.useState)(null); // New state for error handling
+    let dinedata = async ()=>{
+        try {
+            let response = await fetch((0, _constants.D_I_N));
+            if (!response.ok) throw new Error("Network response was not ok");
+            let data = await response.json();
+            setData(data);
+            setAllData(data);
+        } catch (err) {
+            setError(err.message); // Set error message
+        } finally{
+            setLoading(false); // Ensure loading is set to false
+        }
+    };
+    (0, _react.useEffect)(()=>{
+        dinedata();
+    }, []);
+    return [
+        data,
+        allData,
+        setData,
+        loading,
+        error
+    ];
+};
+_s(useDineIn, "xgRBagvAjoyT6kptm0vODtXVx9g=");
+exports.default = useDineIn;
+
+  $parcel$ReactRefreshHelpers$f6ac.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"21dqq","../constants":"3huJa","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["aQL8O","4K3Ob"], null, "parcelRequire94c2")
 
 //# sourceMappingURL=Dineout.ae6b6ca8.js.map

@@ -1,6 +1,10 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import c1 from '../assets/images/c1.jpg';
+import c2 from '../assets/images/c2.jpg';
+import c3 from '../assets/images/c3.png';
+
 
 
 const CarouselImage = () => {
@@ -13,21 +17,21 @@ const CarouselImage = () => {
       <div className="carousel-inner">
         <div className="carousel-item active">
           <img
-            src="https://alphasilver.productsalphawizz.com/uploads/media/2024/847497sdgiuashdgihasio8.jpg"
+            src={c1}
             className="d-block w-100"
             alt="img1"
           />
         </div>
         <div className="carousel-item">
           <img
-            src="https://alphasilver.productsalphawizz.com/uploads/media/2024/7mdfskoasdhgoihgio047805.png"
+            src={c2}
             className="d-block w-100"
             alt="img2"
           />
         </div>
         <div className="carousel-item">
           <img
-            src="https://alphasilver.productsalphawizz.com/uploads/media/2024/bannar.jpg"
+            src={c3}
             className="d-block w-100"
             alt="img3"
           />
