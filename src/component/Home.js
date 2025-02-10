@@ -7,6 +7,8 @@ import { filterData } from "../utils/helper";
 import CarouselImage from "./CarouselImage";
 import DownloadSection from "./DownloadSection";
 import BelowDownloadSection from "./BelowDownloadSection";
+import useOnline from "../utils/useOnline";
+import Offline from "./Offline";
 
 const responsive = {
   superLargeDesktop: {
@@ -118,8 +120,13 @@ const Home = () => {
         "https://alphasilver.productsalphawizz.com/uploads/media/2024/Fitness.jpeg",
     },
   ];
+  const onlinecheck = useOnline();
+  if (!onlinecheck) {
+    return <Offline />;
+  }
   const [item, setItem] = useState(carouselItems);
   const [searchTxt, setSearchTxt] = useState("");
+  
 
   const handleSearch = () => {
     if (searchTxt.trim() === "") {

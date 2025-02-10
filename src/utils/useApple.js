@@ -1,5 +1,6 @@
 import React, { useEffect,useState } from 'react'
 
+
 const useApple = () => {
   const [items , setItems] = useState(null);
         const [allItem , setAllItem] = useState(null);
@@ -12,13 +13,13 @@ const useApple = () => {
     
         const Apple = async () => {
             try {
-                const response = await fetch("http://localhost:3500/api/Mobiles/Apple");
+                const response = await fetch("http://localhost:3500/api");
                 if(!response){
                     throw new Error('Failed to fetch data')
                 }
                 const data = await response.json();
-                setItems(data);
-                setAllItem(data);
+                setItems(data?.Mobiles?.Apple);
+                setAllItem(data.Mobiles?.Apple);
                 
             } catch (error) {
                 setError(error);

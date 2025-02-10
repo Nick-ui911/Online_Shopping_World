@@ -16,8 +16,8 @@ const useDineIn = () => {
          throw new Error("Network response was not ok");
        }
        let data = await response.json();
-       setData(data);
-       setAllData(data);
+       setData(data.DineIn);
+       setAllData(data.DineIn);
      } catch (err) {
        setError(err.message); // Set error message
      } finally {

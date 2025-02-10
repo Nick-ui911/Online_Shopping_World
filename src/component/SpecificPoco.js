@@ -21,6 +21,7 @@ const SpecificPoco = () => {
 
       if (loading === true) return <Shimmer />;
         if (error) return <p>Error: {error}</p>;
+        console.log(item)
         
           const addPoco = (item) => {
             dispatch(addItem(item));

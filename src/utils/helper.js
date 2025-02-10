@@ -1,7 +1,10 @@
-export function filterData(searchtxt,data) {
-    const filter = data.filter((nick) => {
-      // this question mark will handle if name were in deep nested property , it will get name from there,basically it is good practice;
-      return nick.name?.toLowerCase()?.includes(searchtxt.toLowerCase());
-    });
-    return filter;
+export function filterData(searchtxt, data) {
+  if (!Array.isArray(data)) {
+    console.error("filterData: Provided data is not an array", data);
+    return []; // Return an empty array to prevent errors
   }
+
+  return data.filter((nick) =>
+    nick?.name?.toLowerCase().includes(searchtxt.toLowerCase())
+  );
+}

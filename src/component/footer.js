@@ -30,7 +30,7 @@ const Footer = () => {
             <FaEnvelope className="contact-icon email-icon" />
             <div className="contact-text">
               <h4>Mail us</h4>
-              <a href="mailto:support@alphaplatinum.in">support@alphaplatinum.in</a>
+              <a href="https://mail.google.com/mail/baghelnikhil911@gmail.com">Nikhil Singh</a>
             </div>
           </div>
 

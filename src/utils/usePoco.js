@@ -12,13 +12,13 @@ const usePoco = () => {
 
   const Poco= async () => {
     try {
-      const response = await fetch("http://localhost:3500/api/Mobiles/Poco");
+      const response = await fetch("http://localhost:3500/api");
       if (!response) {
         throw new Error("Failed to fetch data");
       }
       const data = await response.json();
-      setItems(data);
-      setAllItem(data);
+      setItems(data?.Mobiles?.Poco);
+      setAllItem(data?.Mobiles.Poco);
     } catch (error) {
       setError(error);
     } finally {

@@ -20,8 +20,8 @@ const useInstamartItem = () =>{
               throw new Error('Network response was not ok'); // Throw error for non-2xx responses
           }
           let json = await response.json();
-          setItem(json);
-          setAllItem(json);
+          setItem(json.Instamart);
+          setAllItem(json.Instamart);
       } catch (err) {
           setError(err.message); // Set error message if an error occurs
       } finally {

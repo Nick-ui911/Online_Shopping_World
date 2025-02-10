@@ -2931,7 +2931,7 @@ p {
 .main-image img {
   width: 100%;
   max-width: 400px; /* Add a limit to prevent oversized images */
-  height: auto; /* Maintain aspect ratio */
+  height: 500px; /* Maintain aspect ratio */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
   margin: 0 auto; /* Center if necessary */

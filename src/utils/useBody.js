@@ -17,8 +17,8 @@ const useBody = () => {
                 throw new Error('Network response was not ok');
             }
             const json = await data.json();
-            setAllRestaurants(json);
-            setFilteredRestaurants(json);
+            setAllRestaurants(json.restaurants);
+            setFilteredRestaurants(json.restaurants);
         } catch (error) {
             console.error('Error fetching restaurants:', error);
         } finally {

@@ -852,8 +852,8 @@ const useDineIn = ()=>{
             let response = await fetch((0, _constants.D_I_N));
             if (!response.ok) throw new Error("Network response was not ok");
             let data = await response.json();
-            setData(data);
-            setAllData(data);
+            setData(data.DineIn);
+            setAllData(data.DineIn);
         } catch (err) {
             setError(err.message); // Set error message
         } finally{

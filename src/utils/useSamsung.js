@@ -12,13 +12,13 @@ const useSamsung = () => {
     
         const Samsung = async () => {
             try {
-                const response = await fetch("http://localhost:3500/api/Mobiles/Samsung");
+                const response = await fetch("http://localhost:3500/api");
                 if(!response){
                     throw new Error('Failed to fetch data')
                 }
                 const data = await response.json();
-                setItems(data);
-                setAllItem(data);
+                setItems(data?.Mobiles?.Samsung);
+                setAllItem(data?.Mobiles?.Samsung);
                 
             } catch (error) {
                 setError(error);

@@ -19,8 +19,8 @@ const useTrending = () => {
             throw new Error("Failed to fetch trending data");
           }
           const data = await response.json();
-          setTrending(data);
-          setSearchTrending(data);
+          setTrending(data.Trending);
+          setSearchTrending(data.Trending);
         } catch (error) {
           setError(error.message);
         } finally {

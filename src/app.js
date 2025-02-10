@@ -57,6 +57,10 @@ import SpecificApple from "./component/SpecificApple";
 import SpecificOneplus from "./component/SpecificOneplus";
 import SpecificXiaomi from "./component/SpecificXiaomi";
 import SpecificPoco from "./component/SpecificPoco";
+import Men from "./component/Men";
+import Women from "./component/Women";
+import Kids from "./component/Kids";
+import SpecificMen from "./component/SpecificMen";
 
 
 // import Dineout from "./component/Dineout";
@@ -180,6 +184,23 @@ const appRouter = createBrowserRouter([
         path: "/clothing",
         element: <Clothing />,
       },
+      {
+        path: "/men",
+        element: <Men />,
+      },
+      {
+        path: "/women",
+        element: <Women />,
+      },
+      {
+        path: "/kids",
+        element: <Kids />,
+      },
+      {
+        path: "/men/:id15",
+        element: <SpecificMen />,
+      },
+      
       {
         path: "/toys",
         element: <Toys />,

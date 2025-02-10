@@ -12,13 +12,13 @@ const useXiaomi = () => {
         
             const Xaomi = async () => {
                 try {
-                    const response = await fetch("http://localhost:3500/api/Mobiles/Xiaomi");
+                    const response = await fetch("http://localhost:3500/api");
                     if(!response){
                         throw new Error('Failed to fetch data')
                     }
                     const data = await response.json();
-                    setItems(data);
-                    setAllItem(data);
+                    setItems(data?.Mobiles?.Xiaomi);
+                    setAllItem(data?.Mobiles?.Xiaomi);
                     
                 } catch (error) {
                     setError(error);
