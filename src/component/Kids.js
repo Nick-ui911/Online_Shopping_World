@@ -76,7 +76,7 @@ const Kids = () => {
   
     <div className="allcards trending-container">
       {items.map((val) => (
-        <Link className="nick" to={`/men/${val.id}`} key={val.id}>
+        <Link className="nick" to={`/kids/${val.id}`} key={val.id}>
           <KidsData {...val} />
         </Link>
       ))}

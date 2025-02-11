@@ -61,6 +61,8 @@ import Men from "./component/Men";
 import Women from "./component/Women";
 import Kids from "./component/Kids";
 import SpecificMen from "./component/SpecificMen";
+import SpecificWomen from "./component/SpecificWomen";
+import SpecificKids from "./component/SpecificKids";
 
 
 // import Dineout from "./component/Dineout";
@@ -199,6 +201,14 @@ const appRouter = createBrowserRouter([
       {
         path: "/men/:id15",
         element: <SpecificMen />,
+      },
+      {
+        path: "/women/:id16",
+        element: <SpecificWomen />,
+      },
+      {
+        path: "/kids/:id17",
+        element: <SpecificKids/>,
       },
       
       {

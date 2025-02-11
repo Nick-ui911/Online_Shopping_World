@@ -8,9 +8,8 @@ import { useState } from "react";
 import WomenData from "./WomenData";
 import useWomen from "../utils/useWomen";
 
-
 const Women = () => {
-  const [items, allItem,setItems, error, loading] = useWomen();
+  const [items, allItem, setItems, error, loading] = useWomen();
   const [searchtxt, setSearchTxt] = useState("");
   const onlinecheck = useOnline();
   if (!onlinecheck) {
@@ -36,54 +35,54 @@ const Women = () => {
   };
   return (
     <div className="trending-container">
-    <div className="search-container">
-      <input
-        type="text"
-        className="inputbox"
-        placeholder="Search"
-        value={searchtxt}
-        onChange={(e) => {
-          setSearchTxt(e.target.value);
-        }}
-        onKeyDown={(e) => {
-          if (e.key === "Enter") {
+      <div className="search-container">
+        <input
+          type="text"
+          className="inputbox"
+          placeholder="Search"
+          value={searchtxt}
+          onChange={(e) => {
+            setSearchTxt(e.target.value);
+          }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              const data = filterData(searchtxt, allItem);
+              setItems(data);
+            }
+          }}
+        />
+        <button
+          className="searchbtn"
+          onClick={() => {
             const data = filterData(searchtxt, allItem);
             setItems(data);
-          }
-        }}
-      />
-      <button
-        className="searchbtn"
-        onClick={() => {
-          const data = filterData(searchtxt, allItem);
-          setItems(data);
-        }}
-      >
-        Search
-      </button>
-      {/* price sort */}
-      <select
-  className="priceSortDropdown"
-  onChange={(e) => {
-    const order = e.target.value;
-    if (order) handlePriceSort(order);
-  }}
->
-  <option value="">Sort by Price</option>
-  <option value="asc">Low to High</option>
-  <option value="desc">High to Low</option>
-</select>
-    </div>
-  
-    <div className="allcards trending-container">
-      {items.map((val) => (
-        <Link className="nick" to={`/women/${val.id}`} key={val.id}>
-          <WomenData {...val} />
-        </Link>
-      ))}
-    </div>
-  </div>
-  )
-}
+          }}
+        >
+          Search
+        </button>
+        {/* price sort */}
+        <select
+          className="priceSortDropdown"
+          onChange={(e) => {
+            const order = e.target.value;
+            if (order) handlePriceSort(order);
+          }}
+        >
+          <option value="">Sort by Price</option>
+          <option value="asc">Low to High</option>
+          <option value="desc">High to Low</option>
+        </select>
+      </div>
 
-export default Women
+      <div className="allcards trending-container">
+        {items.map((val) => (
+          <Link className="nick" to={`/women/${val.id}`} key={val.id}>
+            <WomenData {...val} />
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Women;
