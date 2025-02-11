@@ -8,7 +8,7 @@ const useSpecificWashingMachine = (id8) => {
     const SpecificWashingMachine = async () => {
   
       try {
-        const response = await fetch("http://localhost:3500/api/electronics/WashingMachine/" + id8);
+        const response = await fetch("http://localhost:3500/api/Electronics/WashingMachine/" + id8);
         const data = await response.json();
         setItem(data);
         

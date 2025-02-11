@@ -13,13 +13,13 @@ const useTVs = () => {
 
     const TVData = async () => {
         try {
-            const response = await fetch("http://localhost:3500/api/electronics/TVs");
+            const response = await fetch("http://localhost:3500/api");
             if(!response){
                 throw new Error('Failed to fetch data')
             }
             const data = await response.json();
-            setItems(data);
-            setAllItem(data);
+            setItems(data?.Electronics?.TVs);
+            setAllItem(data?.Electronics?.TVs);
             
         } catch (error) {
             setError(error);

@@ -8,7 +8,7 @@ const useSpecificRefrigerator = (id9) => {
    const SpecificRefrigerator = async () => {
  
      try {
-       const response = await fetch("http://localhost:3500/api/electronics/Refrigerator/" + id9);
+       const response = await fetch("http://localhost:3500/api/Electronics/Refrigerator/" + id9);
        const data = await response.json();
        setItem(data);
        

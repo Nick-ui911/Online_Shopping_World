@@ -63,6 +63,10 @@ import Kids from "./component/Kids";
 import SpecificMen from "./component/SpecificMen";
 import SpecificWomen from "./component/SpecificWomen";
 import SpecificKids from "./component/SpecificKids";
+import SpecificToys from "./component/SpecificToys";
+import SpecificBooks from "./component/SpecificBooks";
+import SpecificStationary from "./component/SpecificStationary";
+import SpecificHomeKitchen from "./component/SpecificHomeKitchen";
 
 
 // import Dineout from "./component/Dineout";
@@ -214,6 +218,22 @@ const appRouter = createBrowserRouter([
       {
         path: "/toys",
         element: <Toys />,
+      },
+      {
+        path: "/toys/:id18",
+        element: <SpecificToys />,
+      },
+      {
+        path: "/books/:id19",
+        element: <SpecificBooks />,
+      },
+      {
+        path: "/stationary/:id20",
+        element: <SpecificStationary />,
+      },
+      {
+        path: "/homekitchen/:id21",
+        element: <SpecificHomeKitchen />,
       },
       {
         path: "/mobiles",

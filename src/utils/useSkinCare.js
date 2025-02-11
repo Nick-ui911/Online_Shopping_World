@@ -12,13 +12,13 @@ const useSkinCare = () => {
 
   async function getSkinCare() {
     try {
-      const data = await fetch("http://localhost:3500/api/beauty-and-care/skin-care");
+      const data = await fetch("http://localhost:3500/api");
       if (!data.ok) {
         throw new Error("Network response was not ok");
       }
       const json = await data.json();
-      setItems(json);
-      setFilterItem(json);
+      setItems(json?.beautyAndCare?.skinCare);
+      setFilterItem(json?.beautyAndCare?.skinCare);
     } catch (error) {
       console.error("Error fetching restaurants:", error);
     } finally {

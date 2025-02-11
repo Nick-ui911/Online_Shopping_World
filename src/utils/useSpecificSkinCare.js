@@ -12,7 +12,7 @@ const useSpecificSkinCare = (id6) => {
   const SkinData = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3500/api/beauty-and-care/skinCare/${id6}`
+        `http://localhost:3500/api/beautyAndCare/skinCare/${id6}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch data");

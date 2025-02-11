@@ -8,7 +8,7 @@ const useSpecificTVs = (id7) => {
   const SpecificTVs = async () => {
 
     try {
-      const response = await fetch("http://localhost:3500/api/electronics/TVs/" + id7);
+      const response = await fetch("http://localhost:3500/api/Electronics/TVs/" + id7);
       const data = await response.json();
       setItem(data);
       

@@ -14,13 +14,13 @@ const useRefrigerator = () => {
  
      const RefrigeratorData = async () => {
          try {
-             const response = await fetch("http://localhost:3500/api/electronics/Refrigerator");
+             const response = await fetch("http://localhost:3500/api");
              if(!response){
                  throw new Error('Failed to fetch data')
              }
              const data = await response.json();
-             setItems(data);
-             setAllItem(data);
+             setItems(data?.Electronics?.Refrigerator);
+             setAllItem(data?.Electronics?.Refrigerator);
              
          } catch (error) {
              setError(error);

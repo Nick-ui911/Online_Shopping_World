@@ -13,7 +13,7 @@ const useSpecificHairCare = (id5) => {
     const HairData = async () => {
       
       try {
-        let response = await fetch("http://localhost:3500/api/beauty-and-care/hairCare/" + id5);
+        let response = await fetch("http://localhost:3500/api/beautyAndCare/hairCare/" + id5);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
