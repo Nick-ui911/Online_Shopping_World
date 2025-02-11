@@ -67,6 +67,7 @@ import SpecificToys from "./component/SpecificToys";
 import SpecificBooks from "./component/SpecificBooks";
 import SpecificStationary from "./component/SpecificStationary";
 import SpecificHomeKitchen from "./component/SpecificHomeKitchen";
+import SpecificFitness from "./component/SpecificFitness";
 
 
 // import Dineout from "./component/Dineout";
@@ -234,6 +235,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/homekitchen/:id21",
         element: <SpecificHomeKitchen />,
+      },
+      {
+        path: "/fitness/:id22",
+        element: <SpecificFitness />,
       },
       {
         path: "/mobiles",
