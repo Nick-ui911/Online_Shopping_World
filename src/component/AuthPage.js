@@ -23,7 +23,7 @@ const AuthPage = () => {
         .required("Password is required"),
     }),
     onSubmit: (values) => {
-      console.log("Login Submitted: ", values);
+      alert("Login Submitted: ", values);
     },
   });
 
@@ -45,7 +45,7 @@ const AuthPage = () => {
         .required("Password is required"),
     }),
     onSubmit: (values) => {
-      console.log("Register Submitted: ", values);
+      alert("Register Submitted: ", values);
     },
   });
 
