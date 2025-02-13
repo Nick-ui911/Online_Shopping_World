@@ -70,14 +70,26 @@ const Header = () => {
             </li>
             <li className="nav-item">
               <Link className="nav-link fav" to="/favorite">
-                <MdFavorite />
+              <lord-icon
+                      src="https://cdn.lordicon.com/aydxrkfl.json"
+                      trigger="loop"
+                      colors="primary:#000000,secondary:#848484"
+                      style={{ width: "40px", height: "40px" }}
+                      className="absolute right-4 top-1/2 transform -translate-y-1/2"
+                    ></lord-icon>
               </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/cart">
                 <div className="cart-logo position-relative">
                   <span className="cart-icon">
-                    <FaShoppingCart />
+                    <lord-icon
+                      src="https://cdn.lordicon.com/ggirntso.json"
+                      trigger="loop"
+                      colors="primary:#000000,secondary:#848484"
+                      style={{ width: "40px", height: "40px" }}
+                      className="absolute right-4 top-1/2 transform -translate-y-1/2"
+                    ></lord-icon>
                   </span>
                   {cartItems.length > 0 && (
                     <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
