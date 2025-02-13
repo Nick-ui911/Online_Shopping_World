@@ -27,4 +27,4 @@ const useSpecificStationary = (id20) => {
     return [item,error,loading];
 }
 
-export default useSpecificStationary
+export default useSpecificStationary;

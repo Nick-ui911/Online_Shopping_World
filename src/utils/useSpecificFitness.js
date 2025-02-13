@@ -27,4 +27,4 @@ const useSpecificFitness = (id22) => {
     return [item,error,loading];
 }
 
-export default useSpecificFitness
+export default useSpecificFitness;

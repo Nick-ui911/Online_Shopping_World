@@ -1,9 +1,7 @@
 import React from "react";
-import { removeItem } from "../utils/CartSlice";
+import { removeItem, increaseQuantity, decreaseQuantity } from "../utils/CartSlice";
 import { useDispatch } from "react-redux";
-import { increaseQuantity, decreaseQuantity } from "../utils/CartSlice";
 import { Trash2, Plus, Minus } from "lucide-react";
-
 
 const FoodItem = ({ id, name, item, price, image, address, time, quantity }) => {
   const dispatch = useDispatch();
@@ -26,7 +24,8 @@ const FoodItem = ({ id, name, item, price, image, address, time, quantity }) => 
       <div className="food-item-details">
         <div>
           <h3 className="food-item-name">{item || name}</h3>
-          <p className="food-item-price">${price}</p>
+          <p className="food-item-price">Price: ${price}</p>
+          <p className="food-item-total">Total: ${price * quantity}</p>
           {address && <h3 className="food-item-address">{address}</h3>}
           {time && <h3 className="food-item-time">{time}</h3>}
         </div>
@@ -50,3 +49,4 @@ const FoodItem = ({ id, name, item, price, image, address, time, quantity }) => 
 };
 
 export default FoodItem;
+  
