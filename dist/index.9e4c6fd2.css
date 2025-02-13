@@ -632,15 +632,6 @@ h2 {
   font-family: Arial, sans-serif;
 }
 
-.auth-container {
-  background-color: #f5f5f5;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  padding: 20px;
-  display: flex;
-}
-
 .login-page, .register-page {
   background: #fff;
   border-radius: 10px;
