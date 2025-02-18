@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
-import { FaShoppingCart } from "react-icons/fa";
-import { MdFavorite } from "react-icons/md";
-import LogoImg from "../assets/images/alphawizzlogo.png";
+import Logo from "../assets/images/logo.png";
 import { useSelector } from "react-redux";
 
 const Header = () => {
@@ -9,7 +7,12 @@ const Header = () => {
 
   return (
     <div className="header navbar navbar-expand-lg navbar-light bg-light fixed-top">
-      <img className="logo navbar-brand" alt="logo" src={LogoImg} />
+      <img className="logo navbar-brand" alt="logo" src={Logo}    style={{
+    width: '70px', // Adjust the size to fit your navbar
+    height: '70px', // Maintain aspect ratio
+    objectFit: 'contain', // Ensure logo doesn't get stretched
+    margin: '0 15px', // Adjust the margin if needed for spacing
+  }} />
 
       {/* Hamburger button */}
       <button
