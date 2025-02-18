@@ -1,120 +1,83 @@
-import Logo from "../assets/images/logo.png";
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Logo from "../assets/images/logo.png";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const cartItems = useSelector((store) => store.cart.items);
 
-  return (
-    <div className="header navbar navbar-expand-lg navbar-light bg-light fixed-top">
-      <div className="header-container">
-        {/* Logo */}
-        <img
-          className="logo navbar-brand"
-          alt="logo"
-          src={Logo}
-        />
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+    if (!isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  };
 
-        {/* Hamburger Menu Button */}
-        <button
-          className="navbar-toggler"
-          type="button"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+  return (
+    <header className="header">
+      <div className="header-wrapper">
+        <Link to="/" className="logo-container">
+          <img src={Logo} alt="logo" className="logo" />
+        </Link>
+
+        <button 
+          className={`menu-toggle ${isMenuOpen ? 'active' : ''}`} 
+          onClick={toggleMenu}
         >
-          <span className="navbar-toggler-icon"></span>
+          <span className="hamburger"><GiHamburgerMenu /></span>
         </button>
 
-        {/* Navigation Links */}
-        <div className={`collapse navbar-collapse ${isMenuOpen ? 'show' : ''}`} id="navbarNav">
-          <nav className="nav-item">
-            <ul className="navbar-nav ms-auto">
-              <li className="nav-item">
-                <Link className="nav-link" to="/">
-                  HOME
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/restaurant">
-                  RESTAURANT
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/clothing">
-                  CLOTHING
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/instamart">
-                  GROCERY
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/fitness">
-                  FITNESS
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/dineout">
-                  DINEOUT
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/trending">
-                  TRENDING
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/mybooking">
-                  BOOKINGS
-                </Link>
-              </li>
-              
-              {/* Icons */}
-              <li className="nav-item">
-                <Link className="nav-link fav" to="/favorite">
-                  <lord-icon
-                    src="https://cdn.lordicon.com/aydxrkfl.json"
-                    trigger="loop"
-                    colors="primary:#000000,secondary:#848484"
-                    style={{ width: "40px", height: "40px" }}
-                  ></lord-icon>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link cart-link" to="/cart">
-                  <div className="cart-logo">
-                    <span className="cart-icon">
-                      <lord-icon
-                        src="https://cdn.lordicon.com/ggirntso.json"
-                        trigger="loop"
-                        colors="primary:#000000,secondary:#848484"
-                        style={{ width: "40px", height: "40px" }}
-                      ></lord-icon>
-                    </span>
-                    {cartItems.length > 0 && (
-                      <span className="cart-badge badge rounded-pill bg-danger">
-                        {cartItems.length}
-                      </span>
-                    )}
-                  </div>
-                </Link>
-              </li>
-            </ul>
+        <div className={`navigation ${isMenuOpen ? 'active' : ''}`}>
+          <nav className="nav-links">
+            <Link to="/" onClick={toggleMenu}>HOME</Link>
+            <Link to="/restaurant" onClick={toggleMenu}>RESTAURANT</Link>
+            <Link to="/clothing" onClick={toggleMenu}>CLOTHING</Link>
+            <Link to="/instamart" onClick={toggleMenu}>GROCERY</Link>
+            <Link to="/fitness" onClick={toggleMenu}>FITNESS</Link>
+            <Link to="/dineout" onClick={toggleMenu}>DINEOUT</Link>
+            <Link to="/trending" onClick={toggleMenu}>TRENDING</Link>
+            <Link to="/mybooking" onClick={toggleMenu}>BOOKINGS</Link>
           </nav>
-          <Link className="button-login" to="/login">
-            <lord-icon
-              src="https://cdn.lordicon.com/kdduutaw.json"
-              trigger="loop"
-              colors="primary:#000000,secondary:#848484"
-              style={{ width: "40px", height: "40px" }}
-            ></lord-icon>
-          </Link>
+
+          <div className="nav-actions">
+            <Link to="/favorite" className="icon-link" onClick={toggleMenu}>
+              <lord-icon
+                src="https://cdn.lordicon.com/aydxrkfl.json"
+                trigger="hover"
+                colors="primary:#000000,secondary:#848484"
+                style={{ width: "24px", height: "24px" }}
+              ></lord-icon>
+            </Link>
+
+            <Link to="/cart" className="icon-link cart-icon" onClick={toggleMenu}>
+              <lord-icon
+                src="https://cdn.lordicon.com/ggirntso.json"
+                trigger="hover"
+                colors="primary:#000000,secondary:#848484"
+                style={{ width: "24px", height: "24px" }}
+              ></lord-icon>
+              {cartItems.length > 0 && (
+                <span className="cart-count">{cartItems.length}</span>
+              )}
+            </Link>
+
+            <Link to="/login" className="icon-link" onClick={toggleMenu}>
+              <lord-icon
+                src="https://cdn.lordicon.com/kdduutaw.json"
+                trigger="hover"
+                colors="primary:#000000,secondary:#848484"
+                style={{ width: "24px", height: "24px" }}
+              ></lord-icon>
+            </Link>
+          </div>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 
