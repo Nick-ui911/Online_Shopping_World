@@ -1,2 +1,0 @@
-var e=globalThis.parcelRequire94c2;(0,e.register)("9T6zK",function(r,a){Object.defineProperty(r.exports,"__esModule",{value:!0,configurable:!0}),Object.defineProperty(r.exports,"default",{get:()=>s,set:void 0,enumerable:!0,configurable:!0});var i=e("ayMG0"),s=()=>/*#__PURE__*/(0,i.jsxs)("div",{children:[/*#__PURE__*/(0,i.jsx)("h1",{children:"Instamart"}),/*#__PURE__*/(0,i.jsx)("h1",{children:" hi , this  is a paragraph of 100 words"})]})});
-//# sourceMappingURL=instamart.89fccd00.js.map

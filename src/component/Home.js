@@ -1,36 +1,15 @@
-import React from "react";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import React, { useState } from "react";
+import Slider from "react-slick";
 import Trending from "./Trending";
-import { useState } from "react";
 import { filterData } from "../utils/helper";
 import CarouselImage from "./CarouselImage";
 import DownloadSection from "./DownloadSection";
 import BelowDownloadSection from "./BelowDownloadSection";
 import useOnline from "../utils/useOnline";
 import Offline from "./Offline";
-
-const responsive = {
-  superLargeDesktop: {
-    breakpoint: { max: 4000, min: 3000 },
-    items: 5,
-  },
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 3,
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 2,
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1,
-  },
-};
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa"; // Import icons
 
 const Home = () => {
-  // Example data for carousel items with links
   const carouselItems = [
     {
       id: 1,
@@ -48,15 +27,14 @@ const Home = () => {
     },
     {
       id: 3,
-      name: " GROCERY",
+      name: "GROCERY",
       link: "/instamart",
       image:
         "https://alphasilver.productsalphawizz.com/uploads/media/2024/Grocery_Gourmet_Food1.jpeg",
     },
-
     {
       id: 4,
-      name: " DINEOUT",
+      name: "DINEOUT",
       link: "/dineout",
       image:
         "https://www.dineout.co.in/blog/wp-content/uploads/2019/11/rsz_101.jpg",
@@ -68,7 +46,6 @@ const Home = () => {
       image:
         "https://alphasilver.productsalphawizz.com/uploads/media/2024/Beauty_Personal_Care_.jpg",
     },
-
     {
       id: 6,
       name: "ELECTRONICS",
@@ -92,7 +69,7 @@ const Home = () => {
     },
     {
       id: 9,
-      name: "HOME&KITCHEN",
+      name: "HOME & KITCHEN",
       link: "/homekitchen",
       image:
         "https://alphasilver.productsalphawizz.com/uploads/media/2024/Home_Kitchen.jpeg",
@@ -104,7 +81,6 @@ const Home = () => {
       image:
         "https://alphasilver.productsalphawizz.com/uploads/media/2024/_Toys_Games.jpeg",
     },
-
     {
       id: 11,
       name: "STATIONARY",
@@ -114,31 +90,84 @@ const Home = () => {
     },
     {
       id: 12,
-      name: " FITNESS",
+      name: "FITNESS",
       link: "/fitness",
       image:
         "https://alphasilver.productsalphawizz.com/uploads/media/2024/Fitness.jpeg",
     },
   ];
-  const onlinecheck = useOnline();
-  if (!onlinecheck) {
+
+  const onlineCheck = useOnline();
+  if (!onlineCheck) {
     return <Offline />;
   }
-  const [item, setItem] = useState(carouselItems);
+
+  const [items, setItems] = useState(carouselItems);
   const [searchTxt, setSearchTxt] = useState("");
-  
 
   const handleSearch = () => {
     if (searchTxt.trim() === "") {
-      setItem(carouselItems); // Reset to full list if search text is empty
+      setItems(carouselItems); // Reset to full list if search text is empty
     } else {
       const filteredData = filterData(searchTxt, carouselItems);
-      setItem(filteredData);
+      console.log("Filtered Data:", filteredData); // Debugging log
+      setItems(filteredData);
     }
   };
+
+  // Custom Arrow Components
+  const PrevArrow = (props) => {
+    const { className, onClick } = props;
+    return (
+      <button className={`${className} custom-prev-arrow`} onClick={onClick}>
+        <FaArrowLeft size={24} color="black" /> {/* Left arrow icon */}
+      </button>
+    );
+  };
+
+  const NextArrow = (props) => {
+    const { className, onClick } = props;
+    return (
+      <button className={`${className} custom-next-arrow`} onClick={onClick}>
+        <FaArrowRight size={24} color="black" /> {/* Right arrow icon */}
+      </button>
+    );
+  };
+
+  const settings = {
+    infinite: false, // Infinite looping
+    speed: 500, // Transition speed
+    slidesToShow: 4, // Number of slides to show at once
+    slidesToScroll: 2, // Number of slides to scroll
+    autoplay: true, // Enable auto-scroll
+    autoplaySpeed: 3000, // Auto-scroll interval (2 seconds)
+    centerPadding: "60px", // Padding around the center slide
+    prevArrow: <PrevArrow />, // Custom previous arrow
+    nextArrow: <NextArrow />, // Custom next arrow
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          centerPadding: "40px", // Adjust padding for smaller screens
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerPadding: "20px", // Minimal padding for mobile
+        },
+      },
+    ],
+  };
+
   return (
     <>
       <div className="main">
+        {/* Search Bar */}
         <div className="searchBar">
           <input
             type="text"
@@ -150,38 +179,44 @@ const Home = () => {
               if (e.key === "Enter") handleSearch();
             }}
           />
-          <button className="searchbtn btn btn-outline-primary" onClick={handleSearch}>
+          <button
+            className="searchbtn btn btn-outline-primary"
+            onClick={handleSearch}
+          >
             Search
           </button>
         </div>
 
+        {/* Carousel Section */}
         <CarouselImage />
-
-        <div className="carousal">
+        <div className="carousel">
           <h1>Categories</h1>
-          <Carousel responsive={responsive}>
-            {item.map((item) => (
-              <a
-                key={item.id}
-                href={item.link}
-                style={{ textDecoration: "none", color: "inherit" }}
-              >
-                <div className="item">
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="carousel-image"
-                  />
-                  <div className="carousel-name">{item.name}</div>
+          <Slider {...settings}>
+            {items.map((item) => {
+              return (
+                <div key={item.id} className="item">
+                  <a
+                    href={item.link}
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="carousel-image"
+                      loading="lazy"
+                      onError={(e) => {
+                        e.target.src = "https://via.placeholder.com/300"; // Fallback image
+                      }}
+                    />
+                    <div className="carousel-name">{item.name}</div>
+                  </a>
                 </div>
-              </a>
-            ))}
-          </Carousel>
+              );
+            })}
+          </Slider>
         </div>
       </div>
-
       <Trending />
-
       <DownloadSection />
       <BelowDownloadSection />
     </>

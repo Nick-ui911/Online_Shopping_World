@@ -1721,11 +1721,62 @@ body {
   font-size: 24px;
 }
 
+.main {
+  padding: 2rem;
+}
+
+.searchBar {
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  display: flex;
+}
+
+.inputbox {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  flex-grow: 1;
+  max-width: 400px;
+  padding: .5rem;
+}
+
+.searchbtn {
+  padding: .5rem 1rem;
+}
+
+.carousel {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.carousel h1 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.item {
+  text-align: center;
+}
+
+.carousel-content {
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+}
+
+.carousel-name {
+  text-align: center;
+  margin-top: .5rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
 .carousel-image {
   object-fit: cover;
   border-radius: 50%;
   width: 150px;
   height: 150px;
+  margin: 0 auto;
   transition: transform .3s, box-shadow .3s;
   box-shadow: 0 4px 10px #0000001a;
 }

@@ -1845,7 +1845,61 @@ body {
 }
 
 /* Carousel Image */
+
+
+/* Main Container */
+.main {
+  padding: 2rem;
+}
+
+.searchBar {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: center; /* Center the search bar */
+}
+
+.inputbox {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  flex-grow: 1;
+  max-width: 400px; /* Limit width for better alignment */
+}
+
+.searchbtn {
+  padding: 0.5rem 1rem;
+}
+
+.carousel {
+  margin-top: 2rem;
+  text-align: center; /* Center-align the entire carousel section */
+}
+
+.carousel h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.item {
+  text-align: center; /* Center-align each item */
+}
+
+.carousel-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center-align content vertically and horizontally */
+}
+
+
+.carousel-name {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center; /* Center-align the text */
+}
 .carousel-image {
+  margin: 0 auto;
   width: 150px; /* Adjust the size as needed */
   height: 150px; /* Ensure it's a perfect square */
   object-fit: cover; /* Maintain aspect ratio */
@@ -3752,6 +3806,76 @@ p {
     padding: 1rem;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
