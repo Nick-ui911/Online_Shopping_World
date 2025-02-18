@@ -62,10 +62,6 @@ body {
   color: #007bff;
 }
 
-.button-login {
-  margin-left: 20px;
-}
-
 .login-button {
   color: #fff;
   cursor: pointer;
@@ -97,6 +93,112 @@ body {
 
   .menu-toggle {
     display: block;
+  }
+}
+
+.header {
+  background-color: #f8f9fa;
+  padding: .5rem 1rem;
+  box-shadow: 0 2px 4px #0000001a;
+}
+
+.header-container {
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  display: flex;
+}
+
+.logo {
+  object-fit: contain;
+  width: 80px;
+  height: 80px;
+  margin: 0 15px;
+}
+
+.navbar-toggler {
+  background-color: #0000;
+  border: none;
+  padding: .25rem;
+  display: none;
+}
+
+.navbar-nav {
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-item {
+  margin: 0 5px;
+}
+
+.nav-link {
+  color: #333;
+  padding: .5rem 1rem;
+  text-decoration: none;
+  transition: color .3s;
+}
+
+.cart-logo {
+  position: relative;
+}
+
+.cart-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+.button-login {
+  margin-left: 1rem;
+}
+
+@media screen and (width <= 991px) {
+  .navbar-toggler {
+    display: block;
+  }
+
+  .navbar-collapse {
+    width: 100%;
+    padding-top: 1rem;
+    display: none;
+  }
+
+  .navbar-collapse.show {
+    display: block;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-item {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .button-login {
+    margin: 1rem 0;
+  }
+
+  .navbar-collapse.show {
+    animation: .3s ease-out forwards slideDown;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 
