@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { X_M_S } from "../constants";
 
 const useSpecificXiaomi = (id13) => {
     const [item, setItem] = useState(null);
@@ -8,7 +9,7 @@ const useSpecificXiaomi = (id13) => {
         const SpecificXiaomi = async () => {
       
           try {
-            const response = await fetch("http://localhost:3500/api/Mobiles/Xiaomi/" + id13);
+            const response = await fetch(X_M_S + id13);
             const data = await response.json();
             setItem(data);
             

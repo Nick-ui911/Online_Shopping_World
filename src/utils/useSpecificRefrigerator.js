@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { R_F_S } from "../constants";
 
 const useSpecificRefrigerator = (id9) => {
    const [item, setItem] = useState(null);
@@ -8,7 +9,7 @@ const useSpecificRefrigerator = (id9) => {
    const SpecificRefrigerator = async () => {
  
      try {
-       const response = await fetch("http://localhost:3500/api/Electronics/Refrigerator/" + id9);
+       const response = await fetch(R_F_S + id9);
        const data = await response.json();
        setItem(data);
        

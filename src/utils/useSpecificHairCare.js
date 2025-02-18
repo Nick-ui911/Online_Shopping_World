@@ -1,5 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from "react";
+import { H_C_S } from '../constants';
 
 const useSpecificHairCare = (id5) => {
 
@@ -13,7 +14,7 @@ const useSpecificHairCare = (id5) => {
     const HairData = async () => {
       
       try {
-        let response = await fetch("http://localhost:3500/api/beautyAndCare/hairCare/" + id5);
+        let response = await fetch(H_C_S + id5);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { T_O_S } from "../constants";
 
 const useSpecificToys = (id18) => {
  const [item, setItem] = useState(null);
@@ -8,7 +9,7 @@ const useSpecificToys = (id18) => {
   const SpecificToys = async () => {
 
     try {
-      const response = await fetch("http://localhost:3500/api/Toys/" + id18 );
+      const response = await fetch(T_O_S + id18 );
       const data = await response.json();
       setItem(data);
       

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { P_M_S } from "../constants";
 
 const useSpecificPoco = (id14) => {
       const [item, setItem] = useState(null);
@@ -8,7 +9,7 @@ const useSpecificPoco = (id14) => {
         const SpecificPoco = async () => {
       
           try {
-            const response = await fetch("http://localhost:3500/api/Mobiles/Poco/" + id14);
+            const response = await fetch(P_M_S + id14);
             const data = await response.json();
             setItem(data);
             

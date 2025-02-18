@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { O_M_S } from "../constants";
 
 const useSpecificOneplus = (id12) => {
     const [item, setItem] = useState(null);
@@ -8,7 +9,7 @@ const useSpecificOneplus = (id12) => {
          const SpecificOneplus = async () => {
        
            try {
-             const response = await fetch("http://localhost:3500/api/Mobiles/Oneplus/" + id12);
+             const response = await fetch(O_M_S + id12);
              const data = await response.json();
              setItem(data);
              

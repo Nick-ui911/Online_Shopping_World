@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { F_F_S } from "../constants";
 
 const useSpecificFitness = (id22) => {
     const [item, setItem] = useState(null);
@@ -8,7 +9,7 @@ const useSpecificFitness = (id22) => {
     const SpecificFitness  = async () => {
   
       try {
-        const response = await fetch("http://localhost:3500/api/Fitness/" + id22 );
+        const response = await fetch(F_F_S + id22 );
         const data = await response.json();
         setItem(data);
         

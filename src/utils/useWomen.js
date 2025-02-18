@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { C_L_T } from "../constants";
 
 const useWomen = () => {
     const [items, setItems] = useState(null);
@@ -11,7 +12,7 @@ const useWomen = () => {
         }, []);
         const Women = async () => {
           try {
-            const response = await fetch("http://localhost:3500/api");
+            const response = await fetch(C_L_T);
             if (!response) {
               throw new Error("Failed to fetch data");
             }

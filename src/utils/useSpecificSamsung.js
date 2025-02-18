@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { S_M_S } from "../constants";
 
 
 const useSpecificSamsung = (id10) => {
@@ -9,7 +10,7 @@ const useSpecificSamsung = (id10) => {
         const SpecificSamsung = async () => {
       
           try {
-            const response = await fetch("http://localhost:3500/api/Mobiles/Samsung/" + id10);
+            const response = await fetch(S_M_S + id10);
             const data = await response.json();
             setItem(data);
             

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { C_L_T_S_K } from "../constants";
 
 const useSpecificKids = (id17) => {
   const [item, setItem] = useState(null);
@@ -8,7 +9,7 @@ const useSpecificKids = (id17) => {
   const SpecificKids = async (id17) => {
     try {
       const response = await fetch(
-        `http://localhost:3500/api/KidsFashion/${id17}`
+       C_L_T_S_K + id17
       );
       if (!response.ok) throw new Error("Item not found"); // Handle 404
       const data = await response.json();

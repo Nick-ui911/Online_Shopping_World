@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { A_M_S } from "../constants";
 
 const useSpecificApple = (id11) => {
     const [item, setItem] = useState(null);
@@ -8,7 +9,7 @@ const useSpecificApple = (id11) => {
       const SpecificApple = async () => {
     
         try {
-          const response = await fetch("http://localhost:3500/api/Mobiles/Apple/" + id11);
+          const response = await fetch(A_M_S + id11);
           const data = await response.json();
           setItem(data);
           

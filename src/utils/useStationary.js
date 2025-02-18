@@ -1,4 +1,5 @@
 import React, { useEffect,useState } from 'react'
+import { S_T_R } from '../constants';
 
 const useStationary = () => {
 
@@ -13,7 +14,7 @@ const useStationary = () => {
 
     const Stationary = async () => {
         try {
-            const response = await fetch("http://localhost:3500/api");
+            const response = await fetch(S_T_R);
             if(!response){
                 throw new Error('Failed to fetch data')
             }

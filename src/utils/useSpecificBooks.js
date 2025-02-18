@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { B_K_S } from "../constants";
 
 const useSpecificBooks = (id19) => {
     const [item, setItem] = useState(null);
@@ -8,7 +9,7 @@ const useSpecificBooks = (id19) => {
     const SpecificBooks = async () => {
   
       try {
-        const response = await fetch("http://localhost:3500/api/Books/" + id19 );
+        const response = await fetch(B_K_S + id19 );
         const data = await response.json();
         setItem(data);
         

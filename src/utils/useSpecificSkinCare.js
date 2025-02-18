@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { S_C_S } from "../constants";
 
 const useSpecificSkinCare = (id6) => {
   const [item, setItem] = useState(null);
@@ -12,7 +13,7 @@ const useSpecificSkinCare = (id6) => {
   const SkinData = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3500/api/beautyAndCare/skinCare/${id6}`
+        S_C_S + id6
       );
       if (!response.ok) {
         throw new Error("Failed to fetch data");

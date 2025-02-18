@@ -1,4 +1,5 @@
 import React, { useEffect,useState } from 'react'
+import { T_O } from '../constants';
 
 const useToys = () => {
 
@@ -13,7 +14,7 @@ const useToys = () => {
 
     const Toys= async () => {
         try {
-            const response = await fetch("http://localhost:3500/api");
+            const response = await fetch(T_O);
             if(!response){
                 throw new Error('Failed to fetch data')
             }

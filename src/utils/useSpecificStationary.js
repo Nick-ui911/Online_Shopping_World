@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { S_T_R_S } from "../constants";
 
 const useSpecificStationary = (id20) => {
    const [item, setItem] = useState(null);
@@ -8,7 +9,7 @@ const useSpecificStationary = (id20) => {
     const SpecificStationary  = async () => {
   
       try {
-        const response = await fetch("http://localhost:3500/api/Stationary/" + id20 );
+        const response = await fetch(S_T_R_S + id20 );
         const data = await response.json();
         setItem(data);
         
