@@ -8,6 +8,7 @@ import BelowDownloadSection from "./BelowDownloadSection";
 import useOnline from "../utils/useOnline";
 import Offline from "./Offline";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa"; // Import icons
+import Carousel from "./Carousel";
 
 const Home = () => {
   const carouselItems = [
@@ -115,54 +116,7 @@ const Home = () => {
     }
   };
 
-  // Custom Arrow Components
-  const PrevArrow = (props) => {
-    const { className, onClick } = props;
-    return (
-      <button className={`${className} custom-prev-arrow`} onClick={onClick}>
-        <FaArrowLeft size={24} color="black" /> {/* Left arrow icon */}
-      </button>
-    );
-  };
 
-  const NextArrow = (props) => {
-    const { className, onClick } = props;
-    return (
-      <button className={`${className} custom-next-arrow`} onClick={onClick}>
-        <FaArrowRight size={24} color="black" /> {/* Right arrow icon */}
-      </button>
-    );
-  };
-
-  const settings = {
-    infinite: false, // Infinite looping
-    speed: 500, // Transition speed
-    slidesToShow: 4, // Number of slides to show at once
-    slidesToScroll: 2, // Number of slides to scroll
-    autoplay: true, // Enable auto-scroll
-    autoplaySpeed: 3000, // Auto-scroll interval (2 seconds)
-    centerPadding: "60px", // Padding around the center slide
-    prevArrow: <PrevArrow />, // Custom previous arrow
-    nextArrow: <NextArrow />, // Custom next arrow
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          centerPadding: "40px", // Adjust padding for smaller screens
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          centerPadding: "20px", // Minimal padding for mobile
-        },
-      },
-    ],
-  };
 
   return (
     <>
@@ -189,32 +143,8 @@ const Home = () => {
 
         {/* Carousel Section */}
         <CarouselImage />
-        <div className="carousel">
-          <h1>Categories</h1>
-          <Slider {...settings}>
-            {items.map((item) => {
-              return (
-                <div key={item.id} className="item">
-                  <a
-                    href={item.link}
-                    style={{ textDecoration: "none", color: "inherit" }}
-                  >
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="carousel-image"
-                      loading="lazy"
-                      onError={(e) => {
-                        e.target.src = "https://via.placeholder.com/300"; // Fallback image
-                      }}
-                    />
-                    <div className="carousel-name">{item.name}</div>
-                  </a>
-                </div>
-              );
-            })}
-          </Slider>
-        </div>
+        <Carousel items ={items}/>
+       
       </div>
       <Trending />
       <DownloadSection />
