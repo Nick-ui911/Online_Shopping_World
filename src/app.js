@@ -1,7 +1,6 @@
 import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./component/header";
-import Restaurant from "./component/Restaurant ";
 import Footer from "./component/footer";
 import Cart from "./component/Cart";
 import Contact from "./component/Contact";
@@ -68,6 +67,7 @@ import SpecificBooks from "./component/SpecificBooks";
 import SpecificStationary from "./component/SpecificStationary";
 import SpecificHomeKitchen from "./component/SpecificHomeKitchen";
 import SpecificFitness from "./component/SpecificFitness";
+import Restaurant from "./component/Restaurant ";
 
 
 // import Dineout from "./component/Dineout";
@@ -307,7 +307,7 @@ const appRouter = createBrowserRouter([
         element:<WashingMachine/>
       },
       {
-        path:"refrigerator",
+        path:"/refrigerator",
         element:<Refrigerator/>
       },
       {
