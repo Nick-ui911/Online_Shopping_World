@@ -35,11 +35,11 @@ const Header = () => {
         <div className={`navigation ${isMenuOpen ? 'active' : ''}`}>
           <nav className="nav-links">
             <Link to="/" onClick={toggleMenu}>HOME</Link>
-            <Link to="/restaurant" onClick={toggleMenu}>RESTAURANT</Link>
             <Link to="/clothing" onClick={toggleMenu}>CLOTHING</Link>
             <Link to="/instamart" onClick={toggleMenu}>GROCERY</Link>
             <Link to="/fitness" onClick={toggleMenu}>FITNESS</Link>
             <Link to="/dineout" onClick={toggleMenu}>DINEOUT</Link>
+            <Link to="/restaurant" onClick={toggleMenu}>RESTAURANT</Link>
             <Link to="/mobiles" onClick={toggleMenu}>MOBILES</Link>
             <Link to="/electronics" onClick={toggleMenu}>ELECTRONICS</Link>
             <Link to="/beauty" onClick={toggleMenu}>BEAUTY</Link>
