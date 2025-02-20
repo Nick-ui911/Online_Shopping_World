@@ -1305,7 +1305,7 @@ h1 {
   }
 }
 .starheading{
-  color: white;
+  color: black;
 }
 .review-count{
   color: white;
@@ -3941,6 +3941,61 @@ p {
 
 .book-now-btn:hover, .favorite-btn:hover {
   opacity: 0.8;
+}
+/* Hotel Title Styling */
+.hotel-title {
+  text-align: center;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.hotel-title h1 {
+  font-size: 28px;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.hotel-rating {
+  margin-bottom: 10px;
+}
+
+.hotel-address {
+  font-size: 16px;
+  color: #666;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.hotel-address i {
+  color: #ff4757;
+  font-size: 18px;
+}
+
+.review-count {
+  font-size: 14px;
+  color: #888;
+  margin-left: 5px;
+}
+
+@media (max-width: 768px) {
+  .hotel-title {
+    padding: 15px;
+  }
+
+  .hotel-title h1 {
+    font-size: 24px;
+  }
+
+  .hotel-address {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 /* Responsive Design */

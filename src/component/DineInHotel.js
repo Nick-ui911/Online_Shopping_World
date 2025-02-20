@@ -78,8 +78,10 @@ const DineInHotel = () => {
 
           <p className="hotel-address">
             <i className="fas fa-map-marker-alt"></i> {Ditem.address}
+            <span className="review-count">(0 Reviews)</span>
           </p>
-          <span className="review-count">(0 Reviews)</span>
+          
+         
         </div>
       </div>
 
