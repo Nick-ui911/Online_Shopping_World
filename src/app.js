@@ -7,7 +7,6 @@ import Contact from "./component/Contact";
 import Error from "./component/Error";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import RestaurantMenu from "./component/RestaurantMenu";
-import Fitness from "./component/Fitness";
 import { Shimmer } from "./component/shimmer";
 import Instaitem from "./component/InstamartItem";
 import About from "./component/About";
@@ -36,29 +35,16 @@ import MyBooking from "./component/MyBooking";
 import AuthPage from "./component/AuthPage";
 import SpecificSectionData from "./component/SpecificSectionData";
 import Favorite from "./component/Favorite";
-import SkinCare from "./component/SkinCare";
-import HairCare from "./component/HairCare";
 import SpecificHairCare from "./component/SpecificHairCare";
 import SpecificSkinCare from "./component/SpecificSkinCare";
-import TVs from "./component/TVs";
-import WashingMachine from "./component/WashingMachine";
-import Refrigerator from "./component/Refrigerator";
 import SpecificTVs from "./component/SpecificTVs";
 import SpecificRefrigerator from "./component/SpecificRefrigerator";
 import SpecificWashingMachine from "./component/SpecificWashingMachine";
-import Samsung from "./component/Samsung";
-import Apple from "./component/Apple";
-import Xiaomi from "./component/Xiaomi";
-import Poco from "./component/Poco";
-import Oneplus from "./component/Oneplus";
 import SpecificSamsung from "./component/SpecificSamsung";
 import SpecificApple from "./component/SpecificApple";
 import SpecificOneplus from "./component/SpecificOneplus";
 import SpecificXiaomi from "./component/SpecificXiaomi";
 import SpecificPoco from "./component/SpecificPoco";
-import Men from "./component/Men";
-import Women from "./component/Women";
-import Kids from "./component/Kids";
 import SpecificMen from "./component/SpecificMen";
 import SpecificWomen from "./component/SpecificWomen";
 import SpecificKids from "./component/SpecificKids";
@@ -70,10 +56,29 @@ import SpecificFitness from "./component/SpecificFitness";
 import Restaurant from "./component/Restaurant ";
 
 
-// import Dineout from "./component/Dineout";
-// import Instamart from "./component/instamart";
+
+
+// import Samsung from "./component/Samsung";
+// import Apple from "./component/Apple";
+// import Xiaomi from "./component/Xiaomi";
+// import Poco from "./component/Poco";
+// import Oneplus from "./component/Oneplus";
 const Dineout = lazy(() => import("./component/Dineout"));
 const Instamart = lazy(() => import("./component/instamart"));
+const Fitness = lazy(() => import("./component/Fitness"));
+const SkinCare = lazy(() => import("./component/SkinCare"));
+const HairCare = lazy(() => import("./component/HairCare"));
+const Men = lazy(() => import("./component/Men"));
+const Women = lazy(() => import("./component/Women"));
+const Kids = lazy(() => import("./component/Kids"));
+const TVs = lazy(() => import("./component/TVs"));
+const WashingMachine = lazy(() => import("./component/WashingMachine"));
+const Refrigerator = lazy(() => import("./component/Refrigerator"));
+const Samsung = lazy(() => import("./component/Samsung"));
+const Apple = lazy(() => import("./component/Apple"));
+const Xiaomi = lazy(() => import("./component/Xiaomi"));
+const Poco = lazy(() => import("./component/Poco"));
+const Oneplus = lazy(() => import("./component/Oneplus"));
 
 
 const Applayout = () => {
@@ -142,7 +147,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/fitness",
-        element: <Fitness />,
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Fitness/>
+          </Suspense>
+        ),
       },
       {
         path: "/dineout",
@@ -194,15 +203,27 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/men",
-        element: <Men />,
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Men/>
+          </Suspense>
+        ),
       },
       {
         path: "/women",
-        element: <Women />,
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Women/>
+          </Suspense>
+        ),
       },
       {
         path: "/kids",
-        element: <Kids />,
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Kids />
+          </Suspense>
+        ),
       },
       {
         path: "/men/:id15",
@@ -283,11 +304,19 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/skincare",
-        element:<SkinCare/>
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            < SkinCare/>
+          </Suspense>
+        ),
       },
       {
         path: "/haircare",
-        element: <HairCare/>
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <HairCare />
+          </Suspense>
+        ),
 
       },
       {
@@ -301,15 +330,27 @@ const appRouter = createBrowserRouter([
       },
       {
         path:"/TVs",
-        element:<TVs/>
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <TVs/>
+          </Suspense>
+        ),
       },
       {
         path:"/washingmachine",
-        element:<WashingMachine/>
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <WashingMachine/>
+          </Suspense>
+        ),
       },
       {
         path:"/refrigerator",
-        element:<Refrigerator/>
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Refrigerator/>
+          </Suspense>
+        ),
       },
       {
         path:"/electronics/TVs/:id7",
@@ -324,23 +365,43 @@ const appRouter = createBrowserRouter([
         element:<SpecificWashingMachine/>
       },{
         path:"/samsung",
-        element:<Samsung/>
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Samsung/>
+          </Suspense>
+        ),
       },
       {
         path:"/apple",
-        element:<Apple/>
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Apple/>
+          </Suspense>
+        ),
       },
       {
         path:"/xiaomi",
-        element:<Xiaomi/>
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Xiaomi />
+          </Suspense>
+        ),
       },
       {
         path:"/oneplus",
-        element:<Oneplus/>
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Oneplus/>
+          </Suspense>
+        ),
       },
       {
         path:"/poco",
-        element:<Poco/>
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Poco/>
+          </Suspense>
+        ),
       },{
         path:"/Mobiles/Samsung/:id10",
         element:<SpecificSamsung/>
