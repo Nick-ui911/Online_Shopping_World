@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Logo from "../assets/images/logo.png";
 import { GiHamburgerMenu } from "react-icons/gi";
 
-
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const cartItems = useSelector((store) => store.cart.items);
+  const bookingItem = useSelector((store) => store.booking.items);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
     if (!isMenuOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
   };
 
@@ -25,25 +25,48 @@ const Header = () => {
           <img src={Logo} alt="logo" className="logo" />
         </Link>
 
-        <button 
-          className={`menu-toggle ${isMenuOpen ? 'active' : ''}`} 
+        <button
+          className={`menu-toggle ${isMenuOpen ? "active" : ""}`}
           onClick={toggleMenu}
         >
-          <span className="hamburger"><GiHamburgerMenu /></span>
+          <span className="hamburger">
+            <GiHamburgerMenu />
+          </span>
         </button>
 
-        <div className={`navigation ${isMenuOpen ? 'active' : ''}`}>
+        <div className={`navigation ${isMenuOpen ? "active" : ""}`}>
           <nav className="nav-links">
-            <Link to="/" onClick={toggleMenu}>HOME</Link>
-            <Link to="/restaurant" onClick={toggleMenu}>RESTAURANT</Link>
-            <Link to="/clothing" onClick={toggleMenu}>CLOTHING</Link>
-            <Link to="/instamart" onClick={toggleMenu}>GROCERY</Link>
-            <Link to="/fitness" onClick={toggleMenu}>FITNESS</Link>
-            <Link to="/dineout" onClick={toggleMenu}>DINEOUT</Link>
-            <Link to="/mobiles" onClick={toggleMenu}>MOBILES</Link>
-            <Link to="/electronics" onClick={toggleMenu}>ELECTRONICS</Link>
-            <Link to="/beauty" onClick={toggleMenu}>SELF-CARE</Link>
-            <Link to="/mybooking" onClick={toggleMenu}>BOOKINGS</Link>
+            <Link to="/" onClick={toggleMenu}>
+              HOME
+            </Link>
+            <Link to="/restaurant" onClick={toggleMenu}>
+              RESTAURANT
+            </Link>
+            <Link to="/clothing" onClick={toggleMenu}>
+              CLOTHING
+            </Link>
+            <Link to="/instamart" onClick={toggleMenu}>
+              GROCERY
+            </Link>
+            <Link to="/fitness" onClick={toggleMenu}>
+              FITNESS
+            </Link>
+            <Link to="/dineout" onClick={toggleMenu}>
+              DINEOUT
+            </Link>
+            <Link to="/mobiles" onClick={toggleMenu}>
+              MOBILES
+            </Link>
+            <Link to="/electronics" onClick={toggleMenu}>
+              ELECTRONICS
+            </Link>
+            <Link to="/beauty" onClick={toggleMenu}>
+              SELF-CARE
+            </Link>
+            <Link to="/mybooking" onClick={toggleMenu}>
+
+             My BOOKINGS
+            </Link>
           </nav>
 
           <div className="nav-actions">
@@ -56,7 +79,11 @@ const Header = () => {
               ></lord-icon>
             </Link>
 
-            <Link to="/cart" className="icon-link cart-icon" onClick={toggleMenu}>
+            <Link
+              to="/cart"
+              className="icon-link cart-icon"
+              onClick={toggleMenu}
+            >
               <lord-icon
                 src="https://cdn.lordicon.com/ggirntso.json"
                 trigger="hover"

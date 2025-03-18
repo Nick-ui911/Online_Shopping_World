@@ -75,6 +75,7 @@ import Restaurant from "./component/Restaurant ";
 const Dineout = lazy(() => import("./component/Dineout"));
 const Instamart = lazy(() => import("./component/instamart"));
 
+
 const Applayout = () => {
   const [seller, setSeller] = useState({
     name: "Raj Babbar",
