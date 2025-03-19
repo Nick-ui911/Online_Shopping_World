@@ -128,6 +128,7 @@ const SpecificHairCare = () => {
                 className="product-link"
                 to={`/beauty-and-care/hairCare/${val.id}`}
                 key={val.id}
+                onClick={() => window.scrollTo(0, 0)} // Scroll to top on click
               >
                 <HairCard {...val} />
               </Link>

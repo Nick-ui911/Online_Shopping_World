@@ -130,6 +130,7 @@ const SpecificHomeKitchen = () => {
         className="product-link"
         to={`/homekitchen/${val.id}`}
         key={val.id}
+        onClick={() => window.scrollTo(0, 0)} // Scroll to top on click
       >
         <HomeKitchenData {...val} />
       </Link>

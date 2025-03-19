@@ -131,6 +131,7 @@ const SpecificSkinCare = () => {
                 className="product-link"
                 to={`/beauty-and-care/skinCare/${val.id}`}
                 key={val.id}
+                onClick={() => window.scrollTo(0, 0)} // Scroll to top on click
               >
                 <SkinCard {...val} />
               </Link>

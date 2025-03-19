@@ -131,6 +131,7 @@ const SpecificRefrigerator = () => {
         className="product-link"
         to={`/electronics/Refrigerator/${val.id}`}
         key={val.id}
+        onClick={() => window.scrollTo(0, 0)} // Scroll to top on click
       >
         <RefrigeratorData {...val} />
       </Link>

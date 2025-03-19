@@ -131,6 +131,7 @@ const SpecificTVs = () => {
         className="product-link"
         to={`/electronics/TVs/${val.id}`}
         key={val.id}
+        onClick={() => window.scrollTo(0, 0)} // Scroll to top on click
       >
         <TVsData {...val} />
       </Link>

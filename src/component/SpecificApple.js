@@ -129,6 +129,7 @@ const SpecificApple = () => {
         className="product-link"
         to={`/Mobiles/Apple/${val.id}`}
         key={val.id}
+        onClick={() => window.scrollTo(0, 0)} // Scroll to top on click
       >
         <AppleData {...val} />
       </Link>

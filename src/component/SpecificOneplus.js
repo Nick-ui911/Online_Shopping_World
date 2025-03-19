@@ -129,6 +129,7 @@ const SpecificOneplus = () => {
         className="product-link"
         to={`/Mobiles/Oneplus/${val.id}`}
         key={val.id}
+        onClick={() => window.scrollTo(0, 0)} // Scroll to top on click
       >
         <OneplusData {...val} />
       </Link>

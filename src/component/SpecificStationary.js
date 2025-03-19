@@ -130,6 +130,7 @@ const SpecificStationary = () => {
         className="product-link"
         to={`/stationary/${val.id}`}
         key={val.id}
+        onClick={() => window.scrollTo(0, 0)} // Scroll to top on click
       >
         <StationaryData {...val} />
       </Link>

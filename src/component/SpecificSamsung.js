@@ -130,6 +130,7 @@ const SpecificSamsung = () => {
         className="product-link"
         to={`/Mobiles/Samsung/${val.id}`}
         key={val.id}
+        onClick={() => window.scrollTo(0, 0)} // Scroll to top on click
       >
         <SamsungData {...val} />
       </Link>

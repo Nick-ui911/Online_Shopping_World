@@ -130,6 +130,7 @@ const SpecificFitness = () => {
         className="product-link"
         to={`/fitness/${val.id}`}
         key={val.id}
+        onClick={() => window.scrollTo(0, 0)} // Scroll to top on click
       >
         <FitnessData {...val} />
       </Link>

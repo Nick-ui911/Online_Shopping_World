@@ -121,6 +121,7 @@ const RestaurantMenu = () => {
                 key={restaurant.id}
                 to={`/restaurant/${restaurant.id}`}
                 className="restaurant-link"
+                onClick={() => window.scrollTo(0, 0)}
               >
                 <Card {...restaurant} />
               </Link>
