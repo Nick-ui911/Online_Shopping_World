@@ -1,110 +1,73 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import Logo from "../assets/images/logo.png";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { IoCloseSharp } from "react-icons/io5";
+import { FaShoppingCart, FaHeart, FaUser } from "react-icons/fa";
+import Logo from "../assets/images/logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const cartItems = useSelector((store) => store.cart.items);
-  const bookingItem = useSelector((store) => store.booking.items);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-    if (!isMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
+    document.body.style.overflow = isMenuOpen ? "unset" : "hidden";
   };
 
   return (
     <header className="header">
-      <div className="header-wrapper">
-        <Link to="/" className="logo-container">
-          <img src={Logo} alt="logo" className="logo" />
+      <div className="header-container">
+        {/* Logo */}
+        <Link to="/" className="logo">
+          <img src={Logo} alt="Nick World" />
         </Link>
+       
 
-        <button
-          className={`menu-toggle ${isMenuOpen ? "active" : ""}`}
-          onClick={toggleMenu}
-        >
-          <span className="hamburger">
-            <GiHamburgerMenu />
-          </span>
-        </button>
+        {/* Desktop Navigation */}
+        <nav className="nav-links">
+        <Link to="/" className="nav-item">HOME</Link>
+          {["restaurant", "clothing", "instamart", "fitness", "dineout", "mobiles", "electronics", "beauty"].map((route) => (
+            <Link key={route} to={`/${route}`} className="nav-item">
+              {route.toUpperCase()}
+            </Link>
+          ))}
+          <Link to="/mybooking" className="nav-item">MY BOOKINGS</Link>
+        </nav>
 
-        <div className={`navigation ${isMenuOpen ? "active" : ""}`}>
-          <nav className="nav-links">
-            <Link to="/" onClick={toggleMenu}>
-              HOME
-            </Link>
-            <Link to="/restaurant" onClick={toggleMenu}>
-              RESTAURANT
-            </Link>
-            <Link to="/clothing" onClick={toggleMenu}>
-              CLOTHING
-            </Link>
-            <Link to="/instamart" onClick={toggleMenu}>
-              GROCERY
-            </Link>
-            <Link to="/fitness" onClick={toggleMenu}>
-              FITNESS
-            </Link>
-            <Link to="/dineout" onClick={toggleMenu}>
-              DINEOUT
-            </Link>
-            <Link to="/mobiles" onClick={toggleMenu}>
-              MOBILES
-            </Link>
-            <Link to="/electronics" onClick={toggleMenu}>
-              ELECTRONICS
-            </Link>
-            <Link to="/beauty" onClick={toggleMenu}>
-              SELF-CARE
-            </Link>
-            <Link to="/mybooking" onClick={toggleMenu}>
-
-             My BOOKINGS
-            </Link>
-          </nav>
-
-          <div className="nav-actions">
-            <Link to="/favorite" className="icon-link" onClick={toggleMenu}>
-              <lord-icon
-                src="https://cdn.lordicon.com/aydxrkfl.json"
-                trigger="hover"
-                colors="primary:#000000,secondary:#848484"
-                style={{ width: "24px", height: "24px" }}
-              ></lord-icon>
-            </Link>
-
-            <Link
-              to="/cart"
-              className="icon-link cart-icon"
-              onClick={toggleMenu}
-            >
-              <lord-icon
-                src="https://cdn.lordicon.com/ggirntso.json"
-                trigger="hover"
-                colors="primary:#000000,secondary:#848484"
-                style={{ width: "24px", height: "24px" }}
-              ></lord-icon>
-              {cartItems.length > 0 && (
-                <span className="cart-count">{cartItems.length}</span>
-              )}
-            </Link>
-
-            <Link to="/login" className="icon-link" onClick={toggleMenu}>
-              <lord-icon
-                src="https://cdn.lordicon.com/kdduutaw.json"
-                trigger="hover"
-                colors="primary:#000000,secondary:#848484"
-                style={{ width: "24px", height: "24px" }}
-              ></lord-icon>
-            </Link>
-          </div>
+        {/* Icons */}
+        <div className="nav-icons">
+          <Link to="/favorite" className="icon-btn">
+            <FaHeart />
+          </Link>
+          <Link to="/cart" className="icon-btn cart-icon">
+            <FaShoppingCart />
+            {cartItems.length > 0 && <span className="cart-count">{cartItems.length}</span>}
+          </Link>
+          <Link to="/login" className="icon-btn">
+            <FaUser />
+          </Link>
         </div>
+
+        {/* Mobile Menu Button */}
+        <button className="menu-btn" onClick={toggleMenu}>
+          {isMenuOpen ? <IoCloseSharp /> : <GiHamburgerMenu />}
+        </button>
+      </div>
+
+      {/* Mobile Navigation */}
+      <div className={`mobile-menu ${isMenuOpen ? "active" : ""}`}>
+      <Link to="/" onClick={toggleMenu} className="mobile-nav-item">
+          HOME
+        </Link>
+        {["restaurant", "clothing", "instamart", "fitness", "dineout", "mobiles", "electronics", "beauty"].map((route) => (
+          <Link key={route} to={`/${route}`} onClick={toggleMenu} className="mobile-nav-item">
+            {route.toUpperCase()}
+          </Link>
+        ))}
+        <Link to="/mybooking" onClick={toggleMenu} className="mobile-nav-item">
+          MY BOOKINGS
+        </Link>
       </div>
     </header>
   );
